@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #F4F1EC;
+  --surface: #EBE8E2;
+  --surface-hover: #E2DFD8;
+  --text-primary: #1A1A1A;
+  --text-secondary: #6E6E6E;
+  --text-tertiary: #A0A0A0;
+  --border: #D4D0C8;
+  --border-subtle: #E2DFD8;
+  --accent: #1A1A1A;
+  --accent-hover: #333333;
+  --accent-foreground: #F4F1EC;
+  --success: #2D7A4F;
+  --warning: #B8860B;
+  --error: #C53030;
+  --info: #2B6CB0;
+  --corner: #C8C4BC;
+}
+
+.dark {
+  --bg: #111110;
+  --surface: #1C1C1A;
+  --surface-hover: #262624;
+  --text-primary: #E8E6E1;
+  --text-secondary: #8A8A85;
+  --text-tertiary: #5C5C58;
+  --border: #2E2E2C;
+  --border-subtle: #232321;
+  --accent: #E8E6E1;
+  --accent-hover: #D0CEC8;
+  --accent-foreground: #111110;
+  --success: #4ADE80;
+  --warning: #FACC15;
+  --error: #F87171;
+  --info: #60A5FA;
+  --corner: #3A3A38;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-hover: var(--surface-hover);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-tertiary: var(--text-tertiary);
+  --color-border: var(--border);
+  --color-border-subtle: var(--border-subtle);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-error: var(--error);
+  --color-info: var(--info);
+  --color-corner: var(--corner);
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-jetbrains-mono);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text-primary);
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--accent-foreground);
+}
+
+a, button, [role="button"], select {
+  cursor: pointer;
+}
