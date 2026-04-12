@@ -24,8 +24,6 @@ export function MarqueeDivider({
   useEffect(() => {
     const track = trackRef.current;
     if (!track) return;
-    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (prefersReduced) return;
 
     // distance = width of ONE full sequence (track has REPEAT copies)
     const distance = track.scrollWidth / REPEAT;

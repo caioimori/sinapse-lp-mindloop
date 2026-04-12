@@ -38,8 +38,6 @@ export function HowItWorksV2() {
   useEffect(() => {
     const root = rootRef.current;
     if (!root) return;
-    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (prefersReduced) return;
 
     const ctx = gsap.context(() => {
       // Line draws down with scroll

@@ -76,8 +76,6 @@ export function PricingV2() {
   useEffect(() => {
     const root = rootRef.current;
     if (!root) return;
-    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (prefersReduced) return;
 
     const ctx = gsap.context(() => {
       gsap.from("[data-plan]", {

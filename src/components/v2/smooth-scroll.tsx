@@ -24,10 +24,18 @@ export function SmoothScroll({ children }: { children: ReactNode }) {
   useEffect(() => {
     if (typeof window === "undefined") return;
 
-    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (prefersReduced) return;
-
     gsap.registerPlugin(ScrollTrigger);
+
+    // Lenis só em desktop com ponteiro fino. Em touch devices o Lenis
+    // não dispara eventos confiáveis, o que faria o ScrollTrigger parar
+    // de atualizar (seções, textos e cards ficariam sem animação).
+    // Mobile usa scroll nativo e ScrollTrigger funciona normalmente.
+    const desktopMQ = window.matchMedia("(min-width: 1024px) and (hover: hover) and (pointer: fine)");
+    if (!desktopMQ.matches) {
+      // Garante que o ScrollTrigger escute o scroll nativo
+      ScrollTrigger.refresh();
+      return;
+    }
 
     const lenis = new Lenis({
       duration: 1.25,
@@ -35,9 +43,7 @@ export function SmoothScroll({ children }: { children: ReactNode }) {
       smoothWheel: true,
     });
 
-    // Garante que o Lenis também arranca do topo
     lenis.scrollTo(0, { immediate: true });
-
     lenis.on("scroll", ScrollTrigger.update);
 
     const raf = (time: number) => {
