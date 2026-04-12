@@ -1,7 +1,3 @@
-"use client";
-
-import { ThemeToggle } from "./theme-toggle";
-
 export function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 border-b border-border/50 bg-bg/80 backdrop-blur-md">
@@ -28,13 +24,12 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-4">
-          <ThemeToggle />
+        <div className="flex items-center">
           <a
             href="#contato"
             className="rounded-full bg-accent px-5 py-2 font-mono text-[11px] uppercase tracking-[0.15em] text-accent-foreground hover:bg-accent-hover transition-colors"
           >
-            Falar com a gente
+            Agendar diagn&oacute;stico
           </a>
         </div>
       </div>

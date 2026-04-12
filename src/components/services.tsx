@@ -4,25 +4,25 @@ const services = [
   {
     name: "MINDLOOP Agents",
     tag: "// AGENTS",
-    description: "Agentes de IA que atendem, qualificam e convertem no WhatsApp, site e e-mail. Orquestra\u00e7\u00e3o multi-agente real.",
+    description: "Seus clientes recebem resposta em segundos. Dia e noite. Com acesso ao hist\u00f3rico e regras do seu neg\u00f3cio.",
     features: ["WhatsApp nativo", "RAG com seus dados", "Multi-agente"],
   },
   {
     name: "MINDLOOP Ops",
     tag: "// OPS",
-    description: "Monitoramento e otimiza\u00e7\u00e3o cont\u00ednua dos seus agentes. Dashboard em tempo real, alertas e relat\u00f3rios de performance.",
+    description: "Voc\u00ea abre o dashboard e v\u00ea o que cada agente fez, quanto custou e onde otimizar. Sem caixa-preta.",
     features: ["Dashboard real-time", "Alertas proativos", "Custo por conversa"],
   },
   {
     name: "MINDLOOP Academy",
     tag: "// ACADEMY",
-    description: "Treinamento pr\u00e1tico para seu time usar IA no dia a dia. Workshops hands-on, n\u00e3o teoria gen\u00e9rica.",
+    description: "Seu time aprende a operar os agentes sozinho. Na pr\u00e1tica, com dados reais. Autonomia, n\u00e3o depend\u00eancia.",
     features: ["Workshops in-company", "Hands-on", "ROI mensur\u00e1vel"],
   },
   {
     name: "MINDLOOP Studio",
     tag: "// STUDIO",
-    description: "Desenvolvimento custom de solu\u00e7\u00f5es com IA. Automa\u00e7\u00e3o de processos, integra\u00e7\u00e3o com sistemas legados, pipelines de dados.",
+    description: "O problema n\u00e3o cabe em produto pronto? Constru\u00edmos sob medida. Integra\u00e7\u00e3o com ERP, CRM e legado.",
     features: ["Projetos custom", "Integra\u00e7\u00e3o APIs", "Automa\u00e7\u00e3o end-to-end"],
   },
 ];
@@ -33,9 +33,8 @@ export function Services() {
       <div className="mx-auto max-w-6xl">
         <SectionLabel>Servi&ccedil;os</SectionLabel>
 
-        <h2 className="mt-8 max-w-xl text-[clamp(1.75rem,3.5vw,2.75rem)] font-light leading-[1.15] tracking-tight text-text-primary">
-          Tudo sob uma marca.
-          <br />
+        <h2 className="mt-8 max-w-xl text-[clamp(1.75rem,3.5vw,2.75rem)] font-normal leading-[1.15] tracking-tight text-text-primary">
+          Atendimento, dados, autonomia.
           Tudo integrado.
         </h2>
 

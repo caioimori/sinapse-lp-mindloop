@@ -36,6 +36,10 @@
   --error: #F87171;
   --info: #60A5FA;
   --corner: #3A3A38;
+
+  /* v2 tokens — warm neutrals congruentes com o cream #F4F1EC da marca */
+  --v2-soft: #B3A896;
+  --v2-mute: #756B5D;
 }
 
 @theme inline {
@@ -55,6 +59,8 @@
   --color-error: var(--error);
   --color-info: var(--info);
   --color-corner: var(--corner);
+  --color-v2-soft: var(--v2-soft);
+  --color-v2-mute: var(--v2-mute);
   --font-sans: var(--font-inter);
   --font-mono: var(--font-jetbrains-mono);
 }
@@ -75,4 +81,86 @@ body {
 
 a, button, [role="button"], select {
   cursor: pointer;
+}
+
+/* ── Scroll Reveal Animations ── */
+
+.reveal {
+  opacity: 0;
+  will-change: opacity, transform, filter;
+  transition:
+    opacity var(--reveal-duration, 700ms) cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0ms),
+    transform var(--reveal-duration, 700ms) cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0ms),
+    filter var(--reveal-duration, 700ms) cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0ms);
+}
+
+.reveal--fade-up { transform: translateY(32px); }
+.reveal--fade-down { transform: translateY(-32px); }
+.reveal--fade-left { transform: translateX(32px); }
+.reveal--fade-right { transform: translateX(-32px); }
+.reveal--fade { transform: none; }
+.reveal--scale-up { transform: scale(0.95); }
+.reveal--blur-in { transform: translateY(12px); filter: blur(8px); }
+
+.reveal--visible {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+
+/* ── Counter Animation ── */
+
+@keyframes count-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-count-up {
+  animation: count-up 600ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ── Subtle Glow ── */
+
+.glow-border {
+  box-shadow: 0 0 0 1px var(--accent), 0 0 20px color-mix(in srgb, var(--accent) 15%, transparent);
+}
+
+/* ── Grain/Noise Texture Overlay ── */
+
+.noise-overlay::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+}
+
+/* ── Pulse Animation ── */
+
+@keyframes subtle-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.animate-subtle-pulse {
+  animation: subtle-pulse 2s ease-in-out infinite;
+}
+
+/* ── Reduced Motion ── */
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    transition: none;
+  }
+  .animate-count-up,
+  .animate-subtle-pulse {
+    animation: none;
+  }
 }

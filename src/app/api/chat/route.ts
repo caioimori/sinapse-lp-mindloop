@@ -2,10 +2,17 @@ import { NextResponse } from "next/server";
 import OpenAI from "openai";
 import { sendToSheet } from "@/lib/sheets";
 
-const client = new OpenAI({
-  apiKey: process.env.KIMI_API_KEY,
-  baseURL: "https://api.moonshot.ai/v1",
-});
+// Lazy init — evita crash no build/page data collection quando KIMI_API_KEY
+// não está definida no ambiente.
+let _client: OpenAI | null = null;
+function getClient(): OpenAI {
+  if (_client) return _client;
+  _client = new OpenAI({
+    apiKey: process.env.KIMI_API_KEY,
+    baseURL: "https://api.moonshot.ai/v1",
+  });
+  return _client;
+}
 
 // --- Rate limiting ---
 const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
@@ -90,7 +97,7 @@ export async function POST(request: Request) {
       content: sanitizeInput(String(msg.content || "")),
     }));
 
-    const completion = await client.chat.completions.create({
+    const completion = await getClient().chat.completions.create({
       model: "kimi-k2-turbo-preview",
       messages: [
         { role: "system", content: SYSTEM_PROMPT },

@@ -3,20 +3,20 @@ import { SectionLabel } from "./corner-marks";
 const steps = [
   {
     number: "01",
-    title: "Discovery",
-    description: "Entendemos seu neg\u00f3cio, mapeamos processos e identificamos onde agentes de IA geram mais impacto. Entrega: roadmap com ROI estimado.",
+    title: "Mapeamento",
+    description: "Entramos na sua opera\u00e7\u00e3o e identificamos os gargalos. Voc\u00ea recebe um roadmap com ROI projetado antes de investir um real.",
     duration: "1 SEMANA",
   },
   {
     number: "02",
-    title: "Build & Deploy",
-    description: "Constru\u00edmos, testamos e implantamos seus agentes. Integra\u00e7\u00e3o com WhatsApp, CRM, ERP e sistemas existentes. Sem disruptar sua opera\u00e7\u00e3o.",
+    title: "Constru\u00e7\u00e3o",
+    description: "Constru\u00edmos os agentes, conectamos aos seus sistemas e colocamos em opera\u00e7\u00e3o. Sua equipe continua trabalhando. Nenhum dia parado.",
     duration: "2\u20133 SEMANAS",
   },
   {
     number: "03",
-    title: "Operate & Optimize",
-    description: "Monitoramos performance 24/7 via MINDLOOP Ops. Otimiza\u00e7\u00e3o cont\u00ednua baseada em dados reais. Relat\u00f3rio mensal com m\u00e9tricas claras.",
+    title: "Otimiza\u00e7\u00e3o",
+    description: "Monitoramos cada conversa, cada custo, cada resultado. Todo m\u00eas a performance sobe. O custo desce.",
     duration: "CONT\u00cdNUO",
   },
 ];
@@ -27,10 +27,10 @@ export function HowItWorks() {
       <div className="mx-auto max-w-6xl">
         <SectionLabel>Processo</SectionLabel>
 
-        <h2 className="mt-8 max-w-xl text-[clamp(1.75rem,3.5vw,2.75rem)] font-light leading-[1.15] tracking-tight text-text-primary">
-          Tr&ecirc;s passos.
+        <h2 className="mt-8 max-w-xl text-[clamp(1.75rem,3.5vw,2.75rem)] font-normal leading-[1.15] tracking-tight text-text-primary">
+          Primeira conversa ao
           <br />
-          Sem complica&ccedil;&atilde;o.
+          primeiro agente: 30 dias.
         </h2>
 
         <div className="mt-20 space-y-0">

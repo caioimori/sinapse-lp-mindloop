@@ -1,24 +1,25 @@
 import { CornerMarks } from "./corner-marks";
+import { HeroAnimation } from "./hero-animation";
 
 export function Hero() {
   return (
     <section className="relative min-h-screen px-8 pt-16">
       <CornerMarks className="m-6" />
 
-      <div className="mx-auto flex max-w-6xl flex-col justify-between gap-16 pt-24 lg:flex-row lg:items-start lg:pt-32">
+      <div className="mx-auto flex max-w-6xl flex-col justify-between gap-16 pt-24 lg:flex-row lg:items-end lg:pt-32">
         {/* Left — Main content */}
-        <div className="max-w-xl flex-1">
-          <h1 className="text-[clamp(2.5rem,6vw,4.5rem)] font-light leading-[1.05] tracking-tight text-text-primary">
-            Agentes de IA
+        <div className="max-w-xl flex-1 pb-8">
+          <h1 className="text-[clamp(2.5rem,5vw,3.25rem)] font-normal leading-[1.05] tracking-tight text-text-primary">
+            Escale sua opera&ccedil;&atilde;o
             <br />
-            que trabalham
+            sem aumentar
             <br />
-            por voc&ecirc;.
+            sua folha.
           </h1>
 
           <p className="mt-8 max-w-md text-base leading-relaxed text-text-secondary">
-            Solu&ccedil;&otilde;es multi-agente produtizadas para empresas brasileiras.
-            Deploy em semanas, n&atilde;o meses. Sem pre&ccedil;o enterprise.
+            Enquanto voc&ecirc; dorme, seus agentes atendem, qualificam e fecham.
+            Treinados com sua base. Prontos em semanas.
           </p>
 
           <div className="mt-12 flex items-center gap-6">
@@ -26,56 +27,25 @@ export function Hero() {
               href="#contato"
               className="inline-flex h-12 items-center rounded-full bg-accent px-8 font-mono text-[11px] uppercase tracking-[0.15em] text-accent-foreground hover:bg-accent-hover transition-colors"
             >
-              Come&ccedil;ar agora
+              Agendar diagn&oacute;stico
             </a>
             <a
-              href="#processo"
+              href="#cases"
               className="font-mono text-[11px] uppercase tracking-[0.15em] text-text-secondary hover:text-text-primary transition-colors"
             >
-              Como funciona &rarr;
+              Ver resultados &rarr;
             </a>
           </div>
         </div>
 
-        {/* Right — Metadata */}
-        <div className="hidden flex-col items-end gap-8 pt-4 lg:flex">
-          <div className="text-right">
-            <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-text-tertiary">
-              &#9632; Empresa
-            </p>
-            <p className="mt-1 font-mono text-[12px] font-medium tracking-wider text-text-primary">
-              MINDLOOP LTDA
-            </p>
-          </div>
-          <div className="text-right">
-            <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-text-tertiary">
-              &#9632; CNPJ
-            </p>
-            <p className="mt-1 font-mono text-[12px] font-medium tracking-wider text-text-primary">
-              60.533.533/0001-60
-            </p>
-          </div>
-          <div className="text-right">
-            <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-text-tertiary">
-              &#9632; Contato
-            </p>
-            <p className="mt-1 font-mono text-[12px] font-medium tracking-wider text-text-primary">
-              contato@mindloop.com.br
-            </p>
-          </div>
-          <div className="text-right">
-            <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-text-tertiary">
-              &#9632; Local
-            </p>
-            <p className="mt-1 font-mono text-[12px] font-medium tracking-wider text-text-primary">
-              S&Atilde;O PAULO, BR
-            </p>
-          </div>
+        {/* Right — Agent wireframe animation */}
+        <div className="relative hidden w-full max-w-md lg:block" style={{ aspectRatio: "885 / 903" }}>
+          <HeroAnimation />
         </div>
       </div>
 
       {/* Bottom metrics */}
-      <div className="mx-auto mt-24 max-w-6xl border-t border-border pt-10 pb-16 lg:mt-32">
+      <div className="mx-auto mt-0 max-w-6xl border-t border-border pt-10 pb-16">
         <div className="grid grid-cols-3 gap-8">
           <div>
             <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-text-tertiary">Deploy</p>

@@ -4,7 +4,7 @@ const cases = [
   {
     company: "Cl\u00ednica Viva Sa\u00fade",
     vertical: "SA\u00dade",
-    quote: "Os agentes da MINDLOOP reduziram nosso tempo de resposta no WhatsApp de 4 horas para 12 segundos. Dobramos o agendamento em 60 dias.",
+    quote: "Perd\u00edamos pacientes por demora. Hoje a resposta leva 12 segundos. Dobramos os agendamentos em 60 dias sem contratar ningu\u00e9m.",
     person: "Dra. Carolina Mendes",
     role: "Diretora Cl\u00ednica",
     metrics: [
@@ -16,7 +16,7 @@ const cases = [
   {
     company: "Advocacia Ribeiro & Associados",
     vertical: "JUR\u00cdDICO",
-    quote: "A automa\u00e7\u00e3o de triagem de documentos economizou 120 horas mensais da nossa equipe. Agora focamos no que importa: a estrat\u00e9gia.",
+    quote: "Meu time gastava 120 horas por m\u00eas em triagem. Hoje gasta zero. Recuperamos tempo para o que gera receita.",
     person: "Dr. Rafael Ribeiro",
     role: "S\u00f3cio-fundador",
     metrics: [
@@ -28,7 +28,7 @@ const cases = [
   {
     company: "AgroTech Sul",
     vertical: "AGRONEG\u00d3CIO",
-    quote: "O agente de intelig\u00eancia de mercado nos d\u00e1 relat\u00f3rios di\u00e1rios que antes levavam 2 semanas para compilar.",
+    quote: "Decis\u00f5es que dependiam de relat\u00f3rios quinzenais agora s\u00e3o tomadas no mesmo dia. ROI de 340% em 90 dias.",
     person: "M\u00e1rcio Ferreira",
     role: "Diretor Comercial",
     metrics: [
@@ -45,10 +45,10 @@ export function Cases() {
       <div className="mx-auto max-w-6xl">
         <SectionLabel>Cases de sucesso</SectionLabel>
 
-        <h2 className="mt-8 max-w-xl text-[clamp(1.75rem,3.5vw,2.75rem)] font-light leading-[1.15] tracking-tight text-text-primary">
-          Resultados reais.
+        <h2 className="mt-8 max-w-xl text-[clamp(1.75rem,3.5vw,2.75rem)] font-normal leading-[1.15] tracking-tight text-text-primary">
+          Agentes assumiram.
           <br />
-          M&eacute;tricas reais.
+          Resultados comprovaram.
         </h2>
 
         <div className="mt-20 space-y-6">

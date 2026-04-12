@@ -7,7 +7,7 @@ const plans = [
     price: "8K",
     period: "/m\u00eas",
     setup: "Setup: R$ 8\u201312K",
-    description: "Para empresas come\u00e7ando com IA. Um agente inteligente no seu canal principal.",
+    description: "Um agente no seu canal principal. Ideal para validar o impacto antes de escalar.",
     features: [
       "1 agente de IA (WhatsApp ou site)",
       "Integra\u00e7\u00e3o com 1 sistema",
@@ -16,7 +16,7 @@ const plans = [
       "Suporte por e-mail",
       "Relat\u00f3rio mensal",
     ],
-    cta: "Começar com Starter",
+    cta: "Come\u00e7ar com 1 agente",
     highlight: false,
   },
   {
@@ -25,7 +25,7 @@ const plans = [
     price: "18K",
     period: "/m\u00eas",
     setup: "Setup: R$ 15\u201330K",
-    description: "Para empresas que precisam de IA real. Multi-agente com orquestra\u00e7\u00e3o.",
+    description: "Multi-agente, multi-canal, integra\u00e7\u00e3o completa. O plano que muda a opera\u00e7\u00e3o.",
     features: [
       "At\u00e9 5 agentes de IA",
       "Multi-canal (WhatsApp + site + e-mail)",
@@ -35,7 +35,7 @@ const plans = [
       "Calls semanais de otimiza\u00e7\u00e3o",
       "Suporte priorit\u00e1rio",
     ],
-    cta: "Escolher Pro",
+    cta: "Escalar opera\u00e7\u00e3o",
     highlight: true,
   },
   {
@@ -44,7 +44,7 @@ const plans = [
     price: "Sob consulta",
     period: "",
     setup: "Setup: R$ 40\u201380K",
-    description: "Para opera\u00e7\u00f5es complexas. Infra dedicada, modelo custom, SLA garantido.",
+    description: "Infra dedicada, modelo custom, SLA garantido. Para quem exige controle total.",
     features: [
       "Agentes ilimitados",
       "Infraestrutura dedicada",
@@ -54,7 +54,7 @@ const plans = [
       "Account manager dedicado",
       "Treinamento incluso",
     ],
-    cta: "Falar sobre Enterprise",
+    cta: "Solicitar proposta",
     highlight: false,
   },
 ];
@@ -65,14 +65,14 @@ export function Pricing() {
       <div className="mx-auto max-w-6xl">
         <SectionLabel>Planos</SectionLabel>
 
-        <h2 className="mt-8 max-w-xl text-[clamp(1.75rem,3.5vw,2.75rem)] font-light leading-[1.15] tracking-tight text-text-primary">
-          Pre&ccedil;o claro.
+        <h2 className="mt-8 max-w-xl text-[clamp(1.75rem,3.5vw,2.75rem)] font-normal leading-[1.15] tracking-tight text-text-primary">
+          Investimento previs&iacute;vel.
           <br />
-          Sem surpresas.
+          Retorno mensur&aacute;vel.
         </h2>
         <p className="mt-6 max-w-lg text-base leading-relaxed text-text-secondary">
-          Todos os planos incluem monitoramento via MINDLOOP Ops.
-          Setup pago uma vez. Retainer mensal com otimiza&ccedil;&atilde;o cont&iacute;nua.
+          Todos os planos incluem MINDLOOP Ops, otimiza&ccedil;&atilde;o cont&iacute;nua e relat&oacute;rio mensal de ROI.
+          Setup &uacute;nico. Sem taxas ocultas.
         </p>
 
         <div className="mt-20 grid gap-6 md:grid-cols-3">

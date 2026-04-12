@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
-import { ThemeProvider } from "@/components/theme-provider";
 import { ChatWidget } from "@/components/chat-widget";
 import "./globals.css";
 
@@ -34,14 +33,11 @@ export default function RootLayout({
   return (
     <html
       lang="pt-BR"
-      className={`${inter.variable} ${jetbrainsMono.variable} h-full antialiased`}
-      suppressHydrationWarning
+      className={`${inter.variable} ${jetbrainsMono.variable} dark h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col font-sans">
-        <ThemeProvider>
-          {children}
-          <ChatWidget />
-        </ThemeProvider>
+      <body suppressHydrationWarning className="min-h-full flex flex-col font-sans">
+        {children}
+        <ChatWidget />
       </body>
     </html>
   );

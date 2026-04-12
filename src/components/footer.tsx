@@ -11,8 +11,7 @@ export function Footer() {
               <path d="M24 28l-8-6 8-6v12z" opacity="0.5" />
             </svg>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-text-secondary">
-              Agentes de IA para empresas brasileiras.
-              Deploy em semanas, n&atilde;o meses.
+              Agentes de IA que operam sua empresa enquanto voc&ecirc; dorme.
             </p>
           </div>
 

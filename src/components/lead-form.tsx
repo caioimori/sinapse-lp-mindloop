@@ -136,10 +136,10 @@ export function LeadForm() {
             &#9632; Enviado com sucesso
           </p>
           <h2 className="mt-6 text-2xl font-light text-text-primary">
-            Recebemos seu contato.
+            Diagn&oacute;stico em produ&ccedil;&atilde;o.
           </h2>
           <p className="mt-3 text-sm text-text-secondary">
-            Vamos analisar e retornar em at&eacute; 24h &uacute;teis com uma proposta personalizada.
+            Um especialista vai analisar sua opera&ccedil;&atilde;o e retornar em at&eacute; 24h com o mapeamento completo.
           </p>
           <p className="mt-8 font-mono text-[10px] uppercase tracking-[0.2em] text-text-tertiary">
             Enquanto isso, que tal conhecer nossos cases? &uarr;
@@ -154,11 +154,11 @@ export function LeadForm() {
       <div className="mx-auto max-w-lg">
         <SectionLabel>Contato</SectionLabel>
 
-        <h2 className="mt-8 text-[clamp(1.75rem,3.5vw,2.75rem)] font-light leading-[1.15] tracking-tight text-text-primary">
-          Vamos conversar.
+        <h2 className="mt-8 text-[clamp(1.75rem,3.5vw,2.75rem)] font-normal leading-[1.1] tracking-[-0.02em] text-text-primary">
+          Receba seu diagn&oacute;stico.
         </h2>
         <p className="mt-4 text-base leading-relaxed text-text-secondary">
-          Leva menos de 1 minuto. Retornamos em at&eacute; 24h &uacute;teis.
+          3 perguntas. Diagn&oacute;stico personalizado em at&eacute; 24h.
         </p>
 
         {/* Progress bar */}
@@ -196,7 +196,7 @@ export function LeadForm() {
           {step === 0 && (
             <div className="space-y-5 animate-in">
               <p className="text-sm text-text-secondary">
-                Primeiro, como podemos te chamar?
+                Para quem enviamos o diagn&oacute;stico?
               </p>
               <div>
                 <label htmlFor="name" className="font-mono text-[10px] uppercase tracking-[0.15em] text-text-tertiary">
@@ -225,7 +225,7 @@ export function LeadForm() {
                   className={inputClass}
                 />
                 <p className="mt-1.5 font-mono text-[9px] text-text-tertiary">
-                  Sem spam. Apenas a proposta.
+                  Apenas o diagn&oacute;stico. Sem spam.
                 </p>
               </div>
             </div>
@@ -235,7 +235,7 @@ export function LeadForm() {
           {step === 1 && (
             <div className="space-y-5 animate-in">
               <p className="text-sm text-text-secondary">
-                Conte um pouco sobre sua empresa, {data.name.split(" ")[0]}.
+                Nos ajude a entender sua opera&ccedil;&atilde;o, {data.name.split(" ")[0]}.
               </p>
               <div>
                 <label htmlFor="company" className="font-mono text-[10px] uppercase tracking-[0.15em] text-text-tertiary">
@@ -292,7 +292,7 @@ export function LeadForm() {
           {step === 2 && (
             <div className="space-y-5 animate-in">
               <p className="text-sm text-text-secondary">
-                Quase pronto. Essas perguntas nos ajudam a montar a proposta certa.
+                &Uacute;ltima etapa. Isso nos permite projetar o ROI do seu caso.
               </p>
               <div>
                 <p className="font-mono text-[10px] uppercase tracking-[0.15em] text-text-tertiary">
@@ -375,7 +375,7 @@ export function LeadForm() {
               disabled={status === "loading"}
               className="flex h-11 items-center rounded-full bg-accent px-8 font-mono text-[11px] uppercase tracking-[0.15em] text-accent-foreground hover:bg-accent-hover transition-colors disabled:opacity-50"
             >
-              {status === "loading" ? "Enviando..." : "Receber proposta"}
+              {status === "loading" ? "Enviando..." : "Receber diagn\u00f3stico"}
             </button>
           )}
         </div>
@@ -399,7 +399,7 @@ export function LeadForm() {
             ))}
           </div>
           <p className="font-mono text-[10px] text-text-tertiary">
-            +50 empresas j&aacute; utilizam MINDLOOP
+            +50 empresas operam com MINDLOOP
           </p>
         </div>
       </div>
