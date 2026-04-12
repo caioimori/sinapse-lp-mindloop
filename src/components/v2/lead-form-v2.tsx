@@ -118,10 +118,10 @@ export function LeadFormV2() {
   }
 
   const inputClass =
-    "mt-2 h-14 w-full rounded-sm border border-border bg-bg px-5 font-mono text-base text-text-primary placeholder:text-text-tertiary outline-none transition-colors focus:border-accent focus:ring-1 focus:ring-accent";
+    "mt-2 h-12 w-full rounded-sm border border-border bg-bg px-4 font-mono text-base text-text-primary placeholder:text-text-tertiary outline-none transition-colors focus:border-accent focus:ring-1 focus:ring-accent sm:h-14 sm:px-5";
 
   const radioClass = (selected: boolean) =>
-    `flex items-center gap-3 rounded-sm border px-5 py-4 text-left text-sm transition-all ${
+    `flex items-center gap-3 rounded-sm border px-4 py-3.5 text-left text-sm transition-all sm:px-5 sm:py-4 ${
       selected
         ? "border-accent bg-surface text-text-primary"
         : "border-border text-v2-soft hover:border-text-tertiary hover:bg-surface/50 hover:text-text-primary"
@@ -131,9 +131,9 @@ export function LeadFormV2() {
     return (
       <section
         id="contato"
-        className="relative w-full border-t border-border px-6 py-24 sm:px-10 lg:px-16 lg:py-32"
+        className="relative w-full border-t border-border px-5 py-20 sm:px-8 sm:py-24 lg:px-16 lg:py-32"
       >
-        <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
+        <div className="grid gap-10 sm:gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-5">
             <div className="flex items-center gap-4">
               <span className="h-px w-10 bg-success" />
@@ -142,8 +142,8 @@ export function LeadFormV2() {
               </span>
             </div>
             <h2
-              className="mt-10 font-normal leading-[1] tracking-[-0.025em] text-text-primary"
-              style={{ fontSize: "clamp(2rem, 5vw, 4.5rem)" }}
+              className="mt-8 font-normal leading-[1] tracking-[-0.025em] text-text-primary sm:mt-10"
+              style={{ fontSize: "clamp(2.25rem, 7vw, 4.5rem)" }}
             >
               Diagn&oacute;stico
               <br />
@@ -167,9 +167,9 @@ export function LeadFormV2() {
   return (
     <section
       id="contato"
-      className="relative w-full border-t border-border px-6 py-24 sm:px-10 lg:px-16 lg:py-32"
+      className="relative w-full border-t border-border px-5 py-20 sm:px-8 sm:py-24 lg:px-16 lg:py-32"
     >
-      <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
+      <div className="grid gap-10 sm:gap-12 lg:grid-cols-12 lg:gap-16">
         {/* Left — headline + copy */}
         <div className="lg:col-span-5">
           <div className="flex items-center gap-4">
@@ -180,8 +180,8 @@ export function LeadFormV2() {
           </div>
 
           <h2
-            className="mt-10 font-normal leading-[1] tracking-[-0.025em] text-text-primary"
-            style={{ fontSize: "clamp(2rem, 5vw, 4.5rem)" }}
+            className="mt-8 font-normal leading-[1] tracking-[-0.025em] text-text-primary sm:mt-10"
+            style={{ fontSize: "clamp(2.25rem, 7vw, 4.5rem)" }}
           >
             Receba seu
             <br />
@@ -231,17 +231,18 @@ export function LeadFormV2() {
             {STEPS.map((s, i) => (
               <span
                 key={s.label}
-                className={`font-mono text-[10px] uppercase tracking-[0.22em] ${
+                className={`font-mono text-[9px] uppercase tracking-[0.18em] sm:text-[10px] sm:tracking-[0.22em] ${
                   i <= step ? "text-text-primary" : "text-text-tertiary"
                 }`}
               >
-                0{i + 1} &mdash; {s.label}
+                <span className="sm:hidden">0{i + 1}</span>
+                <span className="hidden sm:inline">0{i + 1} &mdash; {s.label}</span>
               </span>
             ))}
           </div>
 
           {/* Steps */}
-          <div className="mt-12">
+          <div className="mt-10 sm:mt-12">
             {step === 0 && (
               <div className="space-y-7">
                 <p className="text-base text-v2-soft lg:text-lg">

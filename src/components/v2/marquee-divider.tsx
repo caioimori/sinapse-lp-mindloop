@@ -50,12 +50,12 @@ export function MarqueeDivider({
   return (
     <div
       aria-hidden
-      className="relative flex w-full items-center overflow-hidden border-y border-border py-6 lg:py-7"
+      className="relative flex w-full items-center overflow-hidden border-y border-border py-5 sm:py-6 lg:py-7"
     >
       <div
         ref={trackRef}
         className="flex shrink-0 whitespace-nowrap font-mono font-light uppercase tracking-[-0.01em] text-v2-soft"
-        style={{ fontSize: "clamp(1rem, 2vw, 1.5rem)" }}
+        style={{ fontSize: "clamp(0.95rem, 2.5vw, 1.5rem)" }}
       >
         {copies.map((copy) =>
           items.map((item, i) => (

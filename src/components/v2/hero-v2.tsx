@@ -32,7 +32,6 @@ export function HeroV2() {
 
       const tl = gsap.timeline({ defaults: { ease: "expo.out" } });
 
-      // Cena entra primeiro, grande e dramática
       if (scene) {
         tl.from(
           scene,
@@ -86,16 +85,19 @@ export function HeroV2() {
         repeat: -1,
       });
 
-      // Parallax suave no scroll
-      gsap.to("[data-hero-scene]", {
-        y: 80,
-        ease: "none",
-        scrollTrigger: {
-          trigger: root,
-          start: "top top",
-          end: "bottom top",
-          scrub: 0.8,
-        },
+      // Parallax suave no scroll (desktop)
+      const mm = gsap.matchMedia();
+      mm.add("(min-width: 1024px)", () => {
+        gsap.to("[data-hero-scene]", {
+          y: 80,
+          ease: "none",
+          scrollTrigger: {
+            trigger: root,
+            start: "top top",
+            end: "bottom top",
+            scrub: 0.8,
+          },
+        });
       });
     }, root);
 
@@ -125,7 +127,7 @@ export function HeroV2() {
         <div className="absolute inset-0 bg-gradient-to-b from-bg/20 via-transparent to-bg" />
       </div>
 
-      {/* Glow radial atrás da cena — cria halo dramático que vaza da cena */}
+      {/* Glow radial atrás da cena — desktop dramático */}
       <div
         data-hero-glow
         className="pointer-events-none absolute z-0 hidden lg:block"
@@ -142,8 +144,17 @@ export function HeroV2() {
         aria-hidden
       />
 
-      {/* Unicorn Studio scene — grande, dramática, ancorada no topo pra
-          criar peso visual sem invadir o bottom band */}
+      {/* Mobile glow — versão mais sutil atrás do conteúdo */}
+      <div
+        className="pointer-events-none absolute inset-0 z-0 lg:hidden"
+        style={{
+          background:
+            "radial-gradient(ellipse 90% 55% at 75% 25%, rgba(179,168,150,0.14) 0%, rgba(179,168,150,0.05) 35%, transparent 65%)",
+        }}
+        aria-hidden
+      />
+
+      {/* Unicorn Studio scene — DESKTOP */}
       <div
         data-hero-scene
         className="pointer-events-none absolute z-0 hidden lg:flex lg:items-center lg:justify-center"
@@ -173,12 +184,31 @@ export function HeroV2() {
         </div>
       </div>
 
-      {/* Title — mais espaço no topo agora que a meta row foi removida */}
-      <div className="relative mt-20 px-6 sm:mt-24 sm:px-10 lg:mt-28 lg:px-16">
+      {/* Unicorn Studio scene — MOBILE/TABLET: menor, centralizada acima do título */}
+      <div
+        className="pointer-events-none relative z-0 mx-auto mt-10 flex items-center justify-center sm:mt-14 lg:hidden"
+        style={{
+          width: "min(70vw, 340px)",
+          height: "min(70vw, 340px)",
+        }}
+        aria-hidden
+      >
+        <UnicornScene
+          projectId={HERO_PROJECT_ID}
+          width="100%"
+          height="100%"
+          scale={1}
+          dpi={1.5}
+          sdkUrl={HERO_SDK_URL}
+        />
+      </div>
+
+      {/* Title */}
+      <div className="relative mt-8 px-5 sm:mt-12 sm:px-8 lg:mt-28 lg:px-16">
         <h1
           className="relative z-10 font-normal leading-[1] tracking-[-0.025em] text-text-primary"
           style={{
-            fontSize: "clamp(2.25rem, 6.5vw, 6rem)",
+            fontSize: "clamp(2.5rem, 9vw, 6rem)",
           }}
         >
           <span className="block" aria-hidden>
@@ -196,18 +226,18 @@ export function HeroV2() {
         </h1>
       </div>
 
-      {/* Bottom band — copy + CTAs + metrics (sem divider, respiro saudável) */}
-      <div className="mt-14 grid gap-12 px-6 pb-20 sm:px-10 lg:mt-20 lg:grid-cols-12 lg:items-center lg:gap-16 lg:px-16 lg:pb-24">
+      {/* Bottom band — copy + CTAs + metrics */}
+      <div className="mt-12 grid gap-12 px-5 pb-16 sm:mt-14 sm:px-8 sm:pb-20 lg:mt-20 lg:grid-cols-12 lg:items-center lg:gap-16 lg:px-16 lg:pb-24">
         <div className="relative z-10 lg:col-span-6" data-hero-line>
-          <p className="max-w-xl text-lg leading-relaxed text-v2-soft lg:text-xl">
+          <p className="max-w-xl text-base leading-relaxed text-v2-soft sm:text-lg lg:text-xl">
             Enquanto voc&ecirc; dorme, seus agentes atendem, qualificam e fecham.
             Treinados com sua base. Prontos em semanas.
           </p>
 
-          <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4">
+          <div className="mt-8 flex flex-col items-stretch gap-4 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-8 sm:gap-y-4 lg:mt-10">
             <a
               href="#contato"
-              className="group inline-flex h-12 items-center rounded-full bg-accent px-8 font-mono text-[11px] uppercase tracking-[0.18em] text-accent-foreground transition-colors hover:bg-accent-hover"
+              className="group inline-flex h-12 items-center justify-center rounded-full bg-accent px-8 font-mono text-[11px] uppercase tracking-[0.18em] text-accent-foreground transition-colors hover:bg-accent-hover"
             >
               Agendar diagn&oacute;stico
               <span className="ml-3 transition-transform group-hover:translate-x-1">
@@ -216,25 +246,29 @@ export function HeroV2() {
             </a>
             <a
               href="#cases"
-              className="font-mono text-[11px] uppercase tracking-[0.18em] text-v2-soft hover:text-text-primary transition-colors"
+              className="text-center font-mono text-[11px] uppercase tracking-[0.18em] text-v2-soft hover:text-text-primary transition-colors sm:text-left"
             >
               Ver resultados &rarr;
             </a>
           </div>
         </div>
 
-        <div className="relative z-10 grid grid-cols-3 gap-6 lg:col-span-6 lg:gap-10">
+        <div className="relative z-10 flex flex-col divide-y divide-border border-y border-border sm:grid sm:grid-cols-3 sm:gap-6 sm:divide-y-0 sm:border-0 lg:col-span-6 lg:gap-10">
           {[
             { label: "Deploy", value: "2\u20134", unit: "sem" },
             { label: "Redu\u00e7\u00e3o de custo", value: "75", unit: "%" },
             { label: "Opera\u00e7\u00e3o", value: "24/7", unit: "" },
           ].map((m) => (
-            <div key={m.label} data-hero-metric>
+            <div
+              key={m.label}
+              data-hero-metric
+              className="flex items-baseline justify-between gap-4 py-5 sm:block sm:py-0"
+            >
               <p className="font-mono text-xs uppercase tracking-[0.2em] text-v2-soft">
                 {m.label}
               </p>
-              <p className="mt-4 font-mono font-light leading-none text-text-primary">
-                <span className="text-3xl sm:text-4xl lg:text-5xl">{m.value}</span>
+              <p className="font-mono font-light leading-none text-text-primary sm:mt-4">
+                <span className="text-4xl sm:text-4xl lg:text-5xl">{m.value}</span>
                 {m.unit && (
                   <span className="ml-2 text-base text-v2-soft lg:text-xl">
                     {m.unit}

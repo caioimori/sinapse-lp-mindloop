@@ -81,7 +81,7 @@ export function HowItWorksV2() {
     <section
       ref={rootRef}
       id="processo"
-      className="relative w-full border-t border-border px-6 py-24 sm:px-10 lg:px-16 lg:py-32"
+      className="relative w-full border-t border-border px-5 py-20 sm:px-8 sm:py-24 lg:px-16 lg:py-32"
     >
       <div className="flex items-center gap-4">
         <span className="h-px w-10 bg-border" />
@@ -91,15 +91,15 @@ export function HowItWorksV2() {
       </div>
 
       <h2
-        className="mt-10 font-normal leading-[1] tracking-[-0.025em] text-text-primary"
-        style={{ fontSize: "clamp(2rem, 5vw, 4.5rem)" }}
+        className="mt-8 font-normal leading-[1] tracking-[-0.025em] text-text-primary sm:mt-10"
+        style={{ fontSize: "clamp(2.25rem, 7vw, 4.5rem)" }}
       >
         Primeira conversa ao
         <br />
         <span className="text-v2-soft">primeiro agente: 30 dias.</span>
       </h2>
 
-      <div data-timeline className="relative mt-16 lg:mt-20">
+      <div data-timeline className="relative mt-12 sm:mt-16 lg:mt-20">
         {/* Vertical line */}
         <div className="pointer-events-none absolute left-0 top-0 bottom-0 hidden w-px bg-border lg:block">
           <div
@@ -108,31 +108,35 @@ export function HowItWorksV2() {
           />
         </div>
 
-        <div className="space-y-16 lg:space-y-24 lg:pl-20">
+        <div className="space-y-12 sm:space-y-16 lg:space-y-24 lg:pl-20">
           {steps.map((step) => (
-            <div key={step.number} data-step className="grid gap-5 lg:grid-cols-12 lg:gap-8">
+            <div
+              key={step.number}
+              data-step
+              className="grid gap-3 sm:gap-5 lg:grid-cols-12 lg:gap-8"
+            >
               <div className="lg:col-span-3">
                 <span
                   className="font-mono font-light leading-none text-text-tertiary"
-                  style={{ fontSize: "clamp(2.5rem, 5vw, 4.5rem)" }}
+                  style={{ fontSize: "clamp(2.75rem, 7vw, 4.5rem)" }}
                 >
                   {step.number}
                 </span>
               </div>
 
               <div className="lg:col-span-9 lg:pt-3">
-                <div className="flex flex-wrap items-center gap-4">
+                <div className="flex flex-wrap items-center gap-3 sm:gap-4">
                   <h3
                     className="font-medium leading-[1] tracking-[-0.02em] text-text-primary"
-                    style={{ fontSize: "clamp(1.75rem, 3.5vw, 3rem)" }}
+                    style={{ fontSize: "clamp(1.75rem, 5vw, 3rem)" }}
                   >
                     {step.title}
                   </h3>
-                  <span className="rounded-full border border-border px-3 py-1.5 font-mono text-[11px] uppercase tracking-[0.18em] text-text-tertiary">
+                  <span className="rounded-full border border-border px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-text-tertiary sm:text-[11px]">
                     {step.duration}
                   </span>
                 </div>
-                <p className="mt-6 max-w-xl text-base leading-relaxed text-v2-soft lg:text-lg">
+                <p className="mt-5 max-w-xl text-base leading-relaxed text-v2-soft sm:mt-6 lg:text-lg">
                   {step.description}
                 </p>
               </div>

@@ -73,7 +73,7 @@ export function ServicesV2() {
     <section
       ref={rootRef}
       id="servicos"
-      className="relative w-full border-t border-border px-6 py-24 sm:px-10 lg:px-16 lg:py-32"
+      className="relative w-full border-t border-border px-5 py-20 sm:px-8 sm:py-24 lg:px-16 lg:py-32"
     >
       <div className="flex items-center gap-4">
         <span className="h-px w-10 bg-border" />
@@ -83,20 +83,20 @@ export function ServicesV2() {
       </div>
 
       <h2
-        className="mt-10 font-normal leading-[1] tracking-[-0.025em] text-text-primary"
-        style={{ fontSize: "clamp(2rem, 5vw, 4.5rem)" }}
+        className="mt-8 font-normal leading-[1] tracking-[-0.025em] text-text-primary sm:mt-10"
+        style={{ fontSize: "clamp(2.25rem, 7vw, 4.5rem)" }}
       >
         Atendimento, dados, autonomia.
         <br />
         <span className="text-v2-soft">Tudo integrado.</span>
       </h2>
 
-      <div data-services-grid className="mt-16 border-t border-border">
+      <div data-services-grid className="mt-12 border-t border-border sm:mt-16">
         {services.map((service, i) => (
           <article
             key={service.name}
             data-service-row
-            className={`group grid grid-cols-12 gap-4 py-10 transition-colors hover:bg-surface/30 sm:gap-6 lg:gap-10 lg:py-14 ${
+            className={`group grid grid-cols-12 gap-3 py-8 transition-colors hover:bg-surface/30 sm:gap-6 sm:py-10 lg:gap-10 lg:py-14 ${
               i < services.length - 1 ? "border-b border-border" : ""
             }`}
           >
@@ -112,7 +112,7 @@ export function ServicesV2() {
               </p>
               <h3
                 className="mt-3 font-medium leading-[1] tracking-[-0.02em] text-text-primary"
-                style={{ fontSize: "clamp(1.75rem, 3.5vw, 3rem)" }}
+                style={{ fontSize: "clamp(1.75rem, 5vw, 3rem)" }}
               >
                 {service.name}
               </h3>

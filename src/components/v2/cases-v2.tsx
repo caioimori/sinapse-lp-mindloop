@@ -94,7 +94,7 @@ export function CasesV2() {
     <section
       ref={rootRef}
       id="cases"
-      className="relative w-full px-6 py-24 sm:px-10 lg:px-16 lg:py-32"
+      className="relative w-full px-5 py-20 sm:px-8 sm:py-24 lg:px-16 lg:py-32"
     >
       <div>
         <div className="flex items-center gap-4">
@@ -105,29 +105,29 @@ export function CasesV2() {
         </div>
 
         <h2
-          className="mt-10 font-normal leading-[1] tracking-[-0.025em] text-text-primary"
-          style={{ fontSize: "clamp(2rem, 5vw, 4.5rem)" }}
+          className="mt-8 font-normal leading-[1] tracking-[-0.025em] text-text-primary sm:mt-10"
+          style={{ fontSize: "clamp(2.25rem, 7vw, 4.5rem)" }}
         >
           Agentes assumiram.
           <br />
           <span className="text-v2-soft">Resultados comprovaram.</span>
         </h2>
 
-        <div data-cases-list className="mt-16 space-y-6">
+        <div data-cases-list className="mt-12 space-y-4 sm:mt-16 sm:space-y-6">
           {casesList.map((item) => (
             <article
               key={item.company}
               data-case
-              className="group grid gap-8 border-t border-border py-10 transition-colors hover:bg-surface/30 lg:grid-cols-12 lg:gap-10 lg:py-12"
+              className="group grid gap-6 border-t border-border py-8 transition-colors hover:bg-surface/30 sm:gap-8 sm:py-10 lg:grid-cols-12 lg:gap-10 lg:py-12"
             >
               <div className="lg:col-span-5">
                 <span className="font-mono text-xs uppercase tracking-[0.2em] text-v2-soft">
                   {item.vertical}
                 </span>
-                <h3 className="mt-3 text-2xl font-medium text-text-primary lg:text-3xl">
+                <h3 className="mt-3 text-xl font-medium text-text-primary sm:text-2xl lg:text-3xl">
                   {item.company}
                 </h3>
-                <blockquote className="mt-6 max-w-md text-base leading-relaxed text-v2-soft lg:text-lg">
+                <blockquote className="mt-5 max-w-md text-base leading-relaxed text-v2-soft sm:mt-6 lg:text-lg">
                   &ldquo;{item.quote}&rdquo;
                 </blockquote>
                 <div className="mt-6">
@@ -140,19 +140,24 @@ export function CasesV2() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-3 gap-6 lg:col-span-7 lg:gap-8">
+              <div className="grid grid-cols-1 gap-5 border-t border-border pt-6 sm:grid-cols-3 sm:gap-6 sm:border-0 sm:pt-0 lg:col-span-7 lg:gap-8">
                 {item.metrics.map((metric) => (
-                  <div key={metric.label}>
-                    <p className="font-mono text-xs uppercase tracking-[0.18em] text-v2-soft">
-                      {metric.label}
-                    </p>
-                    <p className="mt-4 font-mono text-sm text-text-tertiary line-through decoration-text-tertiary/60">
-                      {metric.before}
-                    </p>
+                  <div
+                    key={metric.label}
+                    className="flex items-baseline justify-between gap-4 sm:block"
+                  >
+                    <div className="flex-1">
+                      <p className="font-mono text-xs uppercase tracking-[0.18em] text-v2-soft">
+                        {metric.label}
+                      </p>
+                      <p className="mt-2 font-mono text-sm text-text-tertiary line-through decoration-text-tertiary/60 sm:mt-4">
+                        {metric.before}
+                      </p>
+                    </div>
                     <p
                       data-case-metric-value
-                      className="mt-2 font-mono font-light leading-none text-success"
-                      style={{ fontSize: "clamp(1.75rem, 3vw, 2.75rem)" }}
+                      className="font-mono font-light leading-none text-success sm:mt-2"
+                      style={{ fontSize: "clamp(1.75rem, 5vw, 2.75rem)" }}
                     >
                       {metric.after}
                     </p>

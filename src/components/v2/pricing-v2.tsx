@@ -100,7 +100,7 @@ export function PricingV2() {
     <section
       ref={rootRef}
       id="planos"
-      className="relative w-full border-t border-border px-6 py-24 sm:px-10 lg:px-16 lg:py-32"
+      className="relative w-full border-t border-border px-5 py-20 sm:px-8 sm:py-24 lg:px-16 lg:py-32"
     >
       <div className="flex items-center gap-4">
         <span className="h-px w-10 bg-border" />
@@ -110,27 +110,27 @@ export function PricingV2() {
       </div>
 
       <h2
-        className="mt-10 font-normal leading-[1] tracking-[-0.025em] text-text-primary"
-        style={{ fontSize: "clamp(2rem, 5vw, 4.5rem)" }}
+        className="mt-8 font-normal leading-[1] tracking-[-0.025em] text-text-primary sm:mt-10"
+        style={{ fontSize: "clamp(2.25rem, 7vw, 4.5rem)" }}
       >
         Investimento previs&iacute;vel.
         <br />
         <span className="text-v2-soft">Retorno mensur&aacute;vel.</span>
       </h2>
-      <p className="mt-10 max-w-2xl text-lg leading-relaxed text-v2-soft lg:text-xl">
+      <p className="mt-8 max-w-2xl text-base leading-relaxed text-v2-soft sm:text-lg lg:mt-10 lg:text-xl">
         Todos os planos incluem MINDLOOP Ops, otimiza&ccedil;&atilde;o cont&iacute;nua
         e relat&oacute;rio mensal de ROI. Setup &uacute;nico. Sem taxas ocultas.
       </p>
 
       <div
         data-plans-grid
-        className="mt-16 grid gap-px overflow-hidden border border-border bg-border md:grid-cols-3"
+        className="mt-12 grid gap-px overflow-hidden border border-border bg-border sm:mt-16 md:grid-cols-3"
       >
         {plans.map((plan) => (
           <div
             key={plan.name}
             data-plan
-            className={`flex flex-col p-8 lg:p-10 ${
+            className={`flex flex-col p-6 sm:p-8 lg:p-10 ${
               plan.highlight ? "bg-surface" : "bg-bg"
             }`}
           >
