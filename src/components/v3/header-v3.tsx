@@ -69,15 +69,6 @@ export function HeaderV3() {
             <MindloopWordmark
               style={{ color: "var(--text-primary)", height: "22px", width: "auto" }}
             />
-            <span
-              className="ml-1 rounded-none px-2 py-0.5 font-mono text-[10px] font-medium uppercase tracking-[0.18em]"
-              style={{
-                border: "1px solid var(--cobalt)",
-                color: "var(--cobalt)",
-              }}
-            >
-              v3
-            </span>
           </a>
 
           <nav className="hidden items-center gap-9 md:flex">

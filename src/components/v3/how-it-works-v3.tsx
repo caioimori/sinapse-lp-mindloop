@@ -127,7 +127,7 @@ export function HowItWorksV3() {
       <div data-timeline className="relative mt-16 sm:mt-20 lg:mt-28">
         {/* Vertical line */}
         <div
-          className="pointer-events-none absolute left-4 top-0 bottom-0 hidden w-px lg:left-8 lg:block"
+          className="pointer-events-none absolute left-4 top-0 bottom-0 w-px lg:left-8"
           style={{ background: "var(--border)" }}
         >
           <div
@@ -137,7 +137,7 @@ export function HowItWorksV3() {
           />
         </div>
 
-        <div className="space-y-20 sm:space-y-24 lg:space-y-32 lg:pl-24">
+        <div className="space-y-20 pl-14 sm:space-y-24 lg:space-y-32 lg:pl-24">
           {steps.map((step) => (
             <div
               key={step.number}
@@ -147,7 +147,7 @@ export function HowItWorksV3() {
               {/* Dot */}
               <span
                 data-step-dot
-                className="pointer-events-none absolute -left-[88px] top-3 hidden h-2.5 w-2.5 rounded-full lg:block"
+                className="pointer-events-none absolute -left-[44px] top-3 h-2.5 w-2.5 rounded-full lg:-left-[88px]"
                 style={{
                   background: "var(--border)",
                   transformOrigin: "center",

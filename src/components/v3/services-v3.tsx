@@ -186,7 +186,7 @@ export function ServicesV3() {
               </div>
 
               {/* Cross icon */}
-              <div className="col-span-12 hidden items-start justify-end lg:col-span-1 lg:flex lg:pt-3">
+              <div className="col-span-12 flex items-start justify-end lg:col-span-1 lg:pt-3">
                 <span
                   className="relative flex h-10 w-10 items-center justify-center rounded-none transition-transform duration-500"
                   style={{

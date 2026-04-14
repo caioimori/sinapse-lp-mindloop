@@ -55,7 +55,7 @@ export function FooterV3() {
         className="mt-20 grid gap-12 sm:mt-28 lg:grid-cols-12 lg:gap-16"
         style={{ borderTop: "1px solid var(--border)", paddingTop: "3rem" }}
       >
-        <div data-footer-col className="lg:col-span-5">
+        <div data-footer-col className="lg:col-span-6">
           <MindloopSymbol
             style={{ color: "var(--cobalt)", height: "32px", width: "auto" }}
           />
@@ -77,7 +77,7 @@ export function FooterV3() {
           </a>
         </div>
 
-        <div data-footer-col className="lg:col-span-3">
+        <div data-footer-col className="lg:col-span-3 lg:col-start-8">
           <p
             className="font-mono text-[10px] uppercase tracking-[0.22em]"
             style={{ color: "var(--text-tertiary)" }}
@@ -104,7 +104,7 @@ export function FooterV3() {
           </nav>
         </div>
 
-        <div data-footer-col className="lg:col-span-2">
+        <div data-footer-col className="lg:col-span-3">
           <p
             className="font-mono text-[10px] uppercase tracking-[0.22em]"
             style={{ color: "var(--text-tertiary)" }}
@@ -136,36 +136,6 @@ export function FooterV3() {
           </nav>
         </div>
 
-        <div data-footer-col className="lg:col-span-2">
-          <p
-            className="font-mono text-[10px] uppercase tracking-[0.22em]"
-            style={{ color: "var(--text-tertiary)" }}
-          >
-            Versões
-          </p>
-          <nav className="mt-5 flex flex-col gap-3">
-            <Link
-              href="/"
-              className="text-base"
-              style={{ color: "var(--text-secondary)" }}
-            >
-              <span className="v3-underline">v1 — Original</span>
-            </Link>
-            <Link
-              href="/v2"
-              className="text-base"
-              style={{ color: "var(--text-secondary)" }}
-            >
-              <span className="v3-underline">v2 — Editorial</span>
-            </Link>
-            <span
-              className="text-base"
-              style={{ color: "var(--cobalt)" }}
-            >
-              v3 — Cobalt
-            </span>
-          </nav>
-        </div>
       </div>
 
       <div

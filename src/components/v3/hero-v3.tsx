@@ -146,7 +146,7 @@ export function HeroV3() {
       {/* Scroll hint */}
       <div
         data-hero-scroll-hint
-        className="pointer-events-none absolute bottom-6 left-1/2 z-20 hidden -translate-x-1/2 flex-col items-center gap-3 lg:flex"
+        className="pointer-events-none absolute bottom-6 left-1/2 z-20 flex -translate-x-1/2 flex-col items-center gap-3"
       >
         <span
           className="font-mono text-[9px] uppercase tracking-[0.3em]"
