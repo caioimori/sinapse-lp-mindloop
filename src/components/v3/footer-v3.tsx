@@ -77,63 +77,68 @@ export function FooterV3() {
           </a>
         </div>
 
-        <div data-footer-col className="lg:col-span-3 lg:col-start-8">
-          <p
-            className="font-mono text-[10px] uppercase tracking-[0.22em]"
-            style={{ color: "var(--text-tertiary)" }}
-          >
-            Navegação
-          </p>
-          <nav className="mt-5 flex flex-col gap-3">
-            {[
-              { label: "Serviços", href: "#servicos" },
-              { label: "Cases", href: "#cases" },
-              { label: "Processo", href: "#processo" },
-              { label: "Planos", href: "#planos" },
-              { label: "Contato", href: "#contato" },
-            ].map((l) => (
-              <a
-                key={l.href}
-                href={l.href}
+        <div
+          data-footer-col
+          className="grid grid-cols-2 gap-8 sm:gap-12 lg:col-span-6 lg:col-start-7"
+        >
+          <div>
+            <p
+              className="font-mono text-[10px] uppercase tracking-[0.22em]"
+              style={{ color: "var(--text-tertiary)" }}
+            >
+              Navegação
+            </p>
+            <nav className="mt-5 flex flex-col gap-3">
+              {[
+                { label: "Serviços", href: "#servicos" },
+                { label: "Cases", href: "#cases" },
+                { label: "Processo", href: "#processo" },
+                { label: "Planos", href: "#planos" },
+                { label: "Contato", href: "#contato" },
+              ].map((l) => (
+                <a
+                  key={l.href}
+                  href={l.href}
+                  className="text-base"
+                  style={{ color: "var(--text-secondary)" }}
+                >
+                  <span className="v3-underline">{l.label}</span>
+                </a>
+              ))}
+            </nav>
+          </div>
+
+          <div>
+            <p
+              className="font-mono text-[10px] uppercase tracking-[0.22em]"
+              style={{ color: "var(--text-tertiary)" }}
+            >
+              Legal
+            </p>
+            <nav className="mt-5 flex flex-col gap-3">
+              <Link
+                href="/privacidade"
                 className="text-base"
                 style={{ color: "var(--text-secondary)" }}
               >
-                <span className="v3-underline">{l.label}</span>
-              </a>
-            ))}
-          </nav>
-        </div>
-
-        <div data-footer-col className="lg:col-span-3">
-          <p
-            className="font-mono text-[10px] uppercase tracking-[0.22em]"
-            style={{ color: "var(--text-tertiary)" }}
-          >
-            Legal
-          </p>
-          <nav className="mt-5 flex flex-col gap-3">
-            <Link
-              href="/privacidade"
-              className="text-base"
-              style={{ color: "var(--text-secondary)" }}
-            >
-              <span className="v3-underline">Privacidade</span>
-            </Link>
-            <Link
-              href="/termos"
-              className="text-base"
-              style={{ color: "var(--text-secondary)" }}
-            >
-              <span className="v3-underline">Termos</span>
-            </Link>
-            <Link
-              href="/lgpd"
-              className="text-base"
-              style={{ color: "var(--text-secondary)" }}
-            >
-              <span className="v3-underline">LGPD</span>
-            </Link>
-          </nav>
+                <span className="v3-underline">Privacidade</span>
+              </Link>
+              <Link
+                href="/termos"
+                className="text-base"
+                style={{ color: "var(--text-secondary)" }}
+              >
+                <span className="v3-underline">Termos</span>
+              </Link>
+              <Link
+                href="/lgpd"
+                className="text-base"
+                style={{ color: "var(--text-secondary)" }}
+              >
+                <span className="v3-underline">LGPD</span>
+              </Link>
+            </nav>
+          </div>
         </div>
 
       </div>
