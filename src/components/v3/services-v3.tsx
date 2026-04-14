@@ -36,6 +36,14 @@ const services = [
       "Educação em IA aplicada ao seu negócio. Seu time aprende a operar, treinar e escalar os agentes sozinho — na prática, com dados reais. Autonomia, não dependência.",
     features: ["Workshops in-company", "Hands-on", "ROI mensurável"],
   },
+  {
+    name: "CAIOaaS",
+    tag: "// FOUNDER",
+    index: "05",
+    description:
+      "Caio as a Service. Acesso direto ao fundador para arquitetar ecossistemas de IA, desenhar a estratégia do seu stack e destravar decisões críticas. O cérebro por trás da MINDLOOP operando como extensão do seu time.",
+    features: ["Consultoria 1:1", "Arquitetura de IA", "Estratégia executiva"],
+  },
 ];
 
 export function ServicesV3() {
