@@ -164,3 +164,363 @@ a, button, [role="button"], select {
     animation: none;
   }
 }
+
+/* ════════════════════════════════════════════════════════════════
+   V3 — Editorial dark + Cobalt accent
+   Scope isolado. Aplicado somente dentro de <div class="v3"> na rota /v3.
+   ════════════════════════════════════════════════════════════════ */
+
+.v3 {
+  /* Dark editorial base (mais denso que v1/v2) */
+  --bg: #0A0A0B;
+  --surface: #111114;
+  --surface-hover: #17171B;
+  --text-primary: #EDEDEF;
+  --text-secondary: #9A9AA2;
+  --text-tertiary: #52525A;
+  --border: #1C1C20;
+  --border-subtle: #141418;
+  --accent: #EDEDEF;
+  --accent-hover: #FFFFFF;
+  --accent-foreground: #0A0A0B;
+  --corner: #2A2A30;
+
+  /* Cobalt — accent pontual, 2-3% do pixel budget (equivalente ao vermelho NYO) */
+  --cobalt: #2E4BFF;
+  --cobalt-hover: #4A63FF;
+  --cobalt-dim: rgba(46, 75, 255, 0.25);
+  --cobalt-faint: rgba(46, 75, 255, 0.08);
+
+  /* Tipografia fluida — 1vw como unidade base */
+  --t-base: 1vw;
+  --easing: cubic-bezier(0.65, 0.05, 0, 1);
+  --duration: 0.75s;
+
+  background: var(--bg);
+  color: var(--text-primary);
+  font-feature-settings: "ss01", "ss02", "cv11";
+}
+
+/* Tailwind via @theme só resolve colors declaradas em :root/.dark — para cobalt
+   usamos classes utilitárias customizadas abaixo. */
+
+.v3 .bg-cobalt { background-color: var(--cobalt); }
+.v3 .bg-cobalt-hover:hover { background-color: var(--cobalt-hover); }
+.v3 .text-cobalt { color: var(--cobalt); }
+.v3 .border-cobalt { border-color: var(--cobalt); }
+.v3 .ring-cobalt { --tw-ring-color: var(--cobalt); }
+.v3 .from-cobalt { --tw-gradient-from: var(--cobalt); }
+
+/* ── V3 Split line reveal (clip-path -2%/94%) ── */
+
+.v3 .line-wrap {
+  display: block;
+}
+
+.v3 .line-inner {
+  display: block;
+}
+
+.v3 .line-clip {
+  clip-path: polygon(0 -2%, 0 94%, 100% 94%, 100% -2%);
+  display: block;
+  will-change: clip-path;
+}
+
+.v3 .line-clip.is-revealed {
+  clip-path: polygon(0 -2%, 0 102%, 100% 102%, 100% -2%);
+  transition: clip-path 1.2s var(--easing);
+}
+
+/* ── V3 Cursor (mix-blend difference) ── */
+
+.v3-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  pointer-events: none;
+  z-index: 9998;
+  mix-blend-mode: difference;
+  background: #FFFFFF;
+  border-radius: 9999px;
+  transform: translate(-50%, -50%);
+  transition: width 350ms var(--easing), height 350ms var(--easing), background 350ms var(--easing);
+}
+
+.v3-cursor.is-hover {
+  width: 52px;
+  height: 52px;
+}
+
+.v3-cursor.is-cobalt {
+  mix-blend-mode: normal;
+  background: var(--cobalt);
+}
+
+@media (hover: none), (pointer: coarse) {
+  .v3-cursor { display: none; }
+}
+
+/* ── V3 Preloader ── */
+
+.v3-preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: #0A0A0B;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.v3-preloader__count {
+  position: absolute;
+  bottom: 8vh;
+  left: 5vw;
+  font-family: var(--font-mono);
+  font-size: clamp(4rem, 14vw, 14rem);
+  font-weight: 300;
+  line-height: 0.85;
+  letter-spacing: -0.04em;
+  color: #EDEDEF;
+  font-variant-numeric: tabular-nums;
+}
+
+.v3-preloader__label {
+  position: absolute;
+  top: 8vh;
+  left: 5vw;
+  right: 5vw;
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #52525A;
+}
+
+.v3-preloader__bar {
+  position: absolute;
+  bottom: 7vh;
+  right: 5vw;
+  width: 40vw;
+  max-width: 500px;
+  height: 1px;
+  background: rgba(237, 237, 239, 0.12);
+  overflow: hidden;
+}
+
+.v3-preloader__bar-fill {
+  height: 100%;
+  background: var(--cobalt);
+  transform-origin: left;
+  transform: scaleX(0);
+}
+
+.v3-preloader__wipe {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #0A0A0B;
+  transform-origin: bottom;
+  pointer-events: none;
+}
+
+.v3-preloader__brand {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  width: min(60vw, 420px);
+}
+.v3-preloader__brand svg {
+  width: 100%;
+  height: auto;
+  color: #EDEDEF;
+}
+.v3-preloader__brand-symbol {
+  width: clamp(48px, 8vw, 88px) !important;
+  color: var(--cobalt) !important;
+}
+@media (max-width: 640px) {
+  .v3-preloader__brand { width: min(75vw, 320px); gap: 1.25rem; }
+}
+
+/* Hero watermark — símbolo grande estático ocupando o lado direito */
+.v3 .hero-watermark {
+  position: absolute;
+  top: 50%;
+  right: -6%;
+  transform: translateY(-50%);
+  width: 66vw;
+  max-width: 1000px;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.1;
+}
+.v3 .hero-watermark svg {
+  width: 100%;
+  height: auto;
+  color: var(--cobalt);
+}
+@media (max-width: 1023px) {
+  .v3 .hero-watermark {
+    top: auto;
+    bottom: 6%;
+    right: -18%;
+    transform: none;
+    width: 140vw;
+    opacity: 0.08;
+  }
+}
+
+/* Hero base glow — gradiente puro, sem filter blur (cheap) */
+.v3 .hero-glow-base {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background:
+    radial-gradient(ellipse 70% 55% at 78% 28%, rgba(46, 75, 255, 0.22) 0%, rgba(46, 75, 255, 0.06) 35%, transparent 65%),
+    radial-gradient(ellipse 60% 50% at 20% 70%, rgba(46, 75, 255, 0.08) 0%, transparent 60%);
+}
+
+/* ── V3 Section chapter markers (data-theme swap) ── */
+
+.v3 [data-v3-section] {
+  position: relative;
+}
+
+.v3 .chapter-marker {
+  position: absolute;
+  top: 6.5rem;
+  left: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.26em;
+  color: color-mix(in srgb, var(--cobalt) 65%, var(--text-secondary));
+  z-index: 5;
+}
+
+.v3 .chapter-marker__dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 9999px;
+  background: var(--cobalt);
+  box-shadow: 0 0 0 4px rgba(46, 75, 255, 0.18);
+}
+
+@media (min-width: 1024px) {
+  .v3 .chapter-marker {
+    top: 7.5rem;
+    left: 4rem;
+    font-size: 12px;
+  }
+}
+
+/* Section label (linha + texto) — usado em "Serviços", "Cases" etc */
+.v3 .section-label {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  color: var(--cobalt);
+}
+.v3 .section-label__bar {
+  display: inline-block;
+  width: 4rem;
+  height: 1px;
+  background: var(--cobalt);
+}
+
+/* Esconde badge Unicorn Studio em qualquer ponto do scope v3 */
+.v3 a[href*="unicorn.studio"],
+.v3 [class*="madeWithUnicorn"],
+.v3 [class*="MadeWithUnicorn"],
+.v3 [class*="made-with-unicorn"],
+.v3 [data-unicorn-watermark],
+.v3 [data-watermark="unicorn"] {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+@keyframes v3-cases-progress {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+/* ── V3 Underline slide (origin-left scale-x) ── */
+
+.v3 .v3-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.v3 .v3-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  height: 1px;
+  width: 100%;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 600ms var(--easing);
+}
+
+.v3 .v3-underline:hover::after {
+  transform: scaleX(1);
+}
+
+/* ── V3 Magnetic button icon shift ── */
+
+.v3 .v3-magnet .v3-magnet__icon {
+  display: inline-block;
+  transition: transform 400ms var(--easing);
+}
+
+.v3 .v3-magnet:hover .v3-magnet__icon {
+  transform: translateX(0.5em);
+}
+
+/* ── V3 Pulse scroll hint ── */
+
+@keyframes v3-pulse {
+  0%, 100% { opacity: 0; transform: scaleY(0); }
+  50%      { opacity: 1; transform: scaleY(1); }
+}
+
+.v3 .v3-scroll-hint {
+  animation: v3-pulse 3.2s ease-in-out infinite;
+  transform-origin: top;
+}
+
+/* ── V3 Reduced motion ── */
+
+@media (prefers-reduced-motion: reduce) {
+  .v3 .line-inner { transform: none; }
+  .v3 .line-clip { clip-path: none; }
+  .v3-cursor { display: none; }
+  .v3-preloader { display: none; }
+  .v3 .v3-scroll-hint { animation: none; }
+}
