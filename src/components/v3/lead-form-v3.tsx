@@ -2,6 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useRevealOnEnter } from "./use-reveal";
+import { buildIvoWhatsAppUrl } from "@/lib/contact";
+import { trackFunnelEvent } from "@/lib/funnel";
 
 const STEPS = [
   { label: "Você" },
@@ -10,12 +12,11 @@ const STEPS = [
 ];
 
 const verticals = [
-  { value: "saude", label: "Saúde / Odontologia", points: 3 },
-  { value: "juridico", label: "Jurídico", points: 3 },
-  { value: "financeiro", label: "Financeiro / Fintech", points: 2 },
-  { value: "varejo", label: "Varejo / E-commerce", points: 2 },
-  { value: "agro", label: "Agronegócio", points: 2 },
-  { value: "outro", label: "Outro setor", points: 1 },
+  { value: "administradora", label: "Administradora", points: 4 },
+  { value: "sindico-profissional", label: "Síndico profissional", points: 4 },
+  { value: "sindico-morador", label: "Síndico morador", points: 3 },
+  { value: "equipe-condominio", label: "Equipe do condomínio", points: 2 },
+  { value: "outro", label: "Outra operação", points: 1 },
 ];
 
 const employeeRanges = [
@@ -133,6 +134,18 @@ export function LeadFormV3() {
       });
       if (!res.ok) throw new Error("Falha");
       setStatus("success");
+      trackFunnelEvent("lead_submit", { source: "site_form" });
+      const whatsappMessage = [
+        "Olá! Acabei de preencher o formulário no site da Mindloop.",
+        `Meu nome é ${data.name}.`,
+        `Empresa: ${data.company}.`,
+        data.message ? `Meu desafio: ${data.message}` : "",
+        "Gostaria de conversar sobre o próximo passo.",
+      ]
+        .filter(Boolean)
+        .join("\n");
+      trackFunnelEvent("whatsapp_redirect", { source: "site_form" });
+      window.location.assign(buildIvoWhatsAppUrl(whatsappMessage));
     } catch {
       setStatus("error");
     }
@@ -150,7 +163,7 @@ export function LeadFormV3() {
     "font-mono text-[11px] font-medium uppercase tracking-[0.22em]";
   const labelStyle = { color: "var(--cobalt)" } as const;
 
-  const radioClass = (_selected: boolean) =>
+  const radioClass = () =>
     `flex cursor-pointer items-center gap-3 rounded-none px-5 py-3.5 text-left text-sm font-medium transition-all sm:px-6 sm:py-4`;
 
   const radioStyle = (selected: boolean) =>
@@ -197,9 +210,9 @@ export function LeadFormV3() {
                 color: "var(--text-primary)",
               }}
             >
-              Diagnóstico
+              Inteligência artificial
               <br />
-              <span style={{ color: "var(--cobalt)" }}>em produção.</span>
+              <span style={{ color: "var(--cobalt)" }}>na operação.</span>
             </h2>
           </div>
           <div className="lg:col-span-6 lg:pt-14">
@@ -207,8 +220,8 @@ export function LeadFormV3() {
               className="max-w-xl text-lg leading-relaxed lg:text-xl"
               style={{ color: "var(--text-secondary)" }}
             >
-              Um especialista vai analisar sua operação e retornar em até 24h
-              com o mapeamento completo.
+              Seu contexto foi recebido. O próximo passo é uma conversa para
+              entender onde a inteligência artificial pode apoiar sua operação.
             </p>
           </div>
         </div>
@@ -247,7 +260,7 @@ export function LeadFormV3() {
           >
             <span className="line-wrap block">
               <span data-form-line className="line-inner">
-                Receba seu
+                Converse sobre sua
               </span>
             </span>
             <span className="line-wrap block">
@@ -256,7 +269,7 @@ export function LeadFormV3() {
                 className="line-inner"
                 style={{ color: "var(--cobalt)" }}
               >
-                diagnóstico.
+                operação.
               </span>
             </span>
           </h2>
@@ -265,8 +278,9 @@ export function LeadFormV3() {
             className="mt-10 max-w-md text-lg leading-relaxed lg:text-xl"
             style={{ color: "var(--text-secondary)" }}
           >
-            3 perguntas. Diagnóstico personalizado em até 24h. Um especialista
-            analisa sua operação e retorna com o mapeamento completo.
+            Um formulário curto para entendermos sua rotina. Depois do envio,
+            você segue para uma conversa sobre atendimento, solicitações,
+            manutenções e informações do condomínio.
           </p>
 
           <div
@@ -274,7 +288,7 @@ export function LeadFormV3() {
             style={{ borderTop: "1px solid var(--border)", paddingTop: "2rem" }}
           >
             <div className="flex -space-x-2">
-              {["CM", "RR", "MF"].map((i) => (
+              {["AT", "SO", "DO"].map((i) => (
                 <div
                   key={i}
                   className="flex h-10 w-10 items-center justify-center rounded-none font-mono text-[11px] font-medium"
@@ -292,7 +306,7 @@ export function LeadFormV3() {
               className="font-mono text-[11px] font-medium uppercase tracking-[0.18em]"
               style={{ color: "var(--text-primary)" }}
             >
-              +50 empresas operam com MINDLOOP
+              Atendimento, solicitações e documentos
             </p>
           </div>
         </div>
@@ -366,7 +380,7 @@ export function LeadFormV3() {
                   className="text-lg leading-relaxed lg:text-xl"
                   style={{ color: "var(--text-primary)" }}
                 >
-                  Para quem enviamos o diagnóstico?
+                  Para quem estamos entendendo a rotina?
                 </p>
                 <div>
                   <label
@@ -476,7 +490,7 @@ export function LeadFormV3() {
                     className={labelClass}
                     style={labelStyle}
                   >
-                    Tamanho da equipe
+                    Pessoas envolvidas na operação
                   </p>
                   <div className="mt-4 flex flex-wrap gap-2">
                     {employeeRanges.map((opt) => (
@@ -484,7 +498,7 @@ export function LeadFormV3() {
                         key={opt.value}
                         type="button"
                         onClick={() => update("employees", opt.value)}
-                        className={radioClass(data.employees === opt.value)}
+                        className={radioClass()}
                         style={radioStyle(data.employees === opt.value)}
                       >
                         <span className="font-mono text-xs">{opt.label}</span>
@@ -497,7 +511,7 @@ export function LeadFormV3() {
                     className={labelClass}
                     style={labelStyle}
                   >
-                    Setor
+                    Qual é a sua operação?
                   </p>
                   <div className="mt-4 flex flex-wrap gap-2">
                     {verticals.map((opt) => (
@@ -505,7 +519,7 @@ export function LeadFormV3() {
                         key={opt.value}
                         type="button"
                         onClick={() => update("vertical", opt.value)}
-                        className={radioClass(data.vertical === opt.value)}
+                        className={radioClass()}
                         style={radioStyle(data.vertical === opt.value)}
                       >
                         <span className="text-xs">{opt.label}</span>
@@ -522,7 +536,7 @@ export function LeadFormV3() {
                   className="text-lg leading-relaxed lg:text-xl"
                   style={{ color: "var(--text-primary)" }}
                 >
-                  Última etapa. Isso nos permite projetar o ROI do seu caso.
+                  Última etapa. Isso nos ajuda a entender o potencial do seu caso.
                 </p>
                 <div>
                   <p
@@ -537,7 +551,7 @@ export function LeadFormV3() {
                         key={opt.value}
                         type="button"
                         onClick={() => update("urgency", opt.value)}
-                        className={radioClass(data.urgency === opt.value)}
+                        className={radioClass()}
                         style={radioStyle(data.urgency === opt.value)}
                       >
                         <span className="text-xs">{opt.label}</span>
@@ -550,7 +564,7 @@ export function LeadFormV3() {
                     className={labelClass}
                     style={labelStyle}
                   >
-                    Investimento mensal estimado
+                    Momento da operação
                   </p>
                   <div className="mt-4 flex flex-wrap gap-2">
                     {budgetOptions.map((opt) => (
@@ -558,7 +572,7 @@ export function LeadFormV3() {
                         key={opt.value}
                         type="button"
                         onClick={() => update("budget", opt.value)}
-                        className={radioClass(data.budget === opt.value)}
+                        className={radioClass()}
                         style={radioStyle(data.budget === opt.value)}
                       >
                         <span className="text-xs">{opt.label}</span>
@@ -587,7 +601,7 @@ export function LeadFormV3() {
                       rows={3}
                       className="w-full resize-none bg-transparent px-0 py-3 font-mono text-base outline-none placeholder:text-[var(--text-tertiary)]"
                       style={{ color: "var(--text-primary)" }}
-                      placeholder="Ex: Quero automatizar o atendimento no WhatsApp..."
+                      placeholder="Ex: Quero organizar dúvidas dos moradores e acompanhar manutenções..."
                     />
                   </div>
                 </div>
@@ -635,10 +649,12 @@ export function LeadFormV3() {
                 className="v3-magnet flex h-14 items-center gap-3 rounded-none px-9 font-mono text-[12px] font-medium uppercase tracking-[0.2em] disabled:opacity-50"
                 style={{ background: "var(--cobalt)", color: "#FFFFFF" }}
                 data-cursor="cobalt"
+                data-funnel-event="contact_cta_click"
+                data-funnel-label="Enviar e continuar no WhatsApp"
               >
                 {status === "loading"
                   ? "Enviando..."
-                  : "Receber diagnóstico"}
+                  : "Enviar e continuar no WhatsApp"}
                 <span className="v3-magnet__icon">→</span>
               </button>
             )}

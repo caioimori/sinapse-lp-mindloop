@@ -28,6 +28,38 @@ export function SmoothScrollV3({ children }: { children: ReactNode }) {
     const onNativeScroll = () => ScrollTrigger.update();
     window.addEventListener("scroll", onNativeScroll, { passive: true });
 
+    let lenis: Lenis | null = null;
+    const onHashClick = (event: MouseEvent) => {
+      if (
+        event.defaultPrevented ||
+        event.button !== 0 ||
+        event.metaKey ||
+        event.ctrlKey ||
+        event.shiftKey ||
+        event.altKey
+      ) {
+        return;
+      }
+
+      const element = event.target instanceof Element
+        ? event.target.closest<HTMLAnchorElement>('a[href^="#"]')
+        : null;
+      const href = element?.getAttribute("href");
+      if (!href || href === "#") return;
+
+      const target = document.querySelector<HTMLElement>(href);
+      if (!target) return;
+
+      event.preventDefault();
+      window.history.replaceState(null, "", href);
+      if (lenis) {
+        lenis.scrollTo(target, { offset: -16 });
+      } else {
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    };
+    document.addEventListener("click", onHashClick);
+
     const desktopMQ = window.matchMedia(
       "(min-width: 1024px) and (hover: hover) and (pointer: fine)"
     );
@@ -35,10 +67,11 @@ export function SmoothScrollV3({ children }: { children: ReactNode }) {
       ScrollTrigger.refresh();
       return () => {
         window.removeEventListener("scroll", onNativeScroll);
+        document.removeEventListener("click", onHashClick);
       };
     }
 
-    const lenis = new Lenis({
+    lenis = new Lenis({
       duration: 0.6,
       easing: (t) => 1 - Math.pow(1 - t, 3),
       smoothWheel: true,
@@ -58,8 +91,9 @@ export function SmoothScrollV3({ children }: { children: ReactNode }) {
 
     return () => {
       window.removeEventListener("scroll", onNativeScroll);
+      document.removeEventListener("click", onHashClick);
       gsap.ticker.remove(raf);
-      lenis.destroy();
+      lenis?.destroy();
       ScrollTrigger.getAll().forEach((t) => t.kill());
     };
   }, []);

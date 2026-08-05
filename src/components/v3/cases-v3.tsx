@@ -6,45 +6,45 @@ import { useRevealOnEnter } from "./use-reveal";
 
 const casesList = [
   {
-    company: "Clínica Viva Saúde",
-    vertical: "SAÚDE",
+    company: "Dúvidas de moradores",
+    vertical: "ATENDIMENTO",
     index: "01",
     quote:
-      "Perdíamos pacientes por demora. Hoje a resposta leva 12 segundos. Dobramos os agendamentos em 60 dias sem contratar ninguém.",
-    person: "Dra. Carolina Mendes",
-    role: "Diretora Clínica",
+      "A IA responde perguntas frequentes e deixa a equipe livre para os casos que exigem contexto e decisão.",
+    person: "Atendimento com contexto",
+    role: "Aplicação prática",
     metrics: [
-      { label: "Tempo de resposta", before: "4h", after: "12s" },
-      { label: "Agendamentos/mês", before: "180", after: "340" },
-      { label: "Custo por lead", before: "R$ 45", after: "R$ 12" },
+      { label: "Perguntas recorrentes", before: "Espalhadas", after: "Organizadas" },
+      { label: "Atendimento", before: "Interrompido", after: "Estruturado" },
+      { label: "Escalonamento", before: "Incerto", after: "Encaminhado" },
     ],
   },
   {
-    company: "Advocacia Ribeiro & Associados",
-    vertical: "JURÍDICO",
+    company: "Solicitações e manutenções",
+    vertical: "OPERAÇÃO",
     index: "02",
     quote:
-      "Meu time gastava 120 horas por mês em triagem. Hoje gasta zero. Recuperamos tempo para o que gera receita.",
-    person: "Dr. Rafael Ribeiro",
-    role: "Sócio-fundador",
+      "Solicitações podem ser abertas, classificadas e encaminhadas para o responsável certo, sem depender de uma triagem manual a cada mensagem.",
+    person: "Fluxo de solicitações",
+    role: "Aplicação prática",
     metrics: [
-      { label: "Horas economizadas", before: "—", after: "120h/mês" },
-      { label: "Triagem de docs", before: "Manual", after: "Automática" },
-      { label: "Capacidade", before: "40/mês", after: "65/mês" },
+      { label: "Solicitações", before: "Avulsas", after: "Classificadas" },
+      { label: "Manutenções", before: "Sem contexto", after: "Acompanhadas" },
+      { label: "Comunicados", before: "Manuais", after: "Padronizados" },
     ],
   },
   {
-    company: "AgroTech Sul",
-    vertical: "AGRONEGÓCIO",
+    company: "Atas, contratos e regras",
+    vertical: "DOCUMENTOS",
     index: "03",
     quote:
-      "Decisões que dependiam de relatórios quinzenais agora são tomadas no mesmo dia. ROI de 340% em 90 dias.",
-    person: "Márcio Ferreira",
-    role: "Diretor Comercial",
+      "A equipe encontra informações do condomínio com mais clareza e transforma documentos longos em referências úteis para a rotina.",
+    person: "Conhecimento organizado",
+    role: "Aplicação prática",
     metrics: [
-      { label: "Relatório", before: "2 sem", after: "Diário" },
-      { label: "Acurácia", before: "72%", after: "94%" },
-      { label: "ROI 90 dias", before: "—", after: "340%" },
+      { label: "Informação", before: "Espalhada", after: "Localizada" },
+      { label: "Atas e contratos", before: "Leitura manual", after: "Resumidos" },
+      { label: "Decisão", before: "Sem contexto", after: "Mais informada" },
     ],
   },
 ];
@@ -110,12 +110,12 @@ export function CasesV3() {
     >
       <div className="chapter-marker">
         <span className="chapter-marker__dot" />
-        <span>04 / 07 — Cases</span>
+        <span>04 / 07 — Aplicações</span>
       </div>
 
       <div className="section-label mt-14">
         <span className="section-label__bar" />
-        <span>Cases de sucesso</span>
+        <span>Aplicações práticas</span>
       </div>
 
       <h2
@@ -127,7 +127,7 @@ export function CasesV3() {
       >
         <span className="line-wrap block">
           <span data-cases-line className="line-inner">
-            Agentes assumiram.
+            A IA entra na rotina.
           </span>
         </span>
         <span className="line-wrap block">
@@ -136,7 +136,7 @@ export function CasesV3() {
             className="line-inner"
             style={{ color: "var(--text-secondary)" }}
           >
-            Resultados comprovaram.
+            A equipe fica com a decisão.
           </span>
         </span>
       </h2>
@@ -279,7 +279,7 @@ export function CasesV3() {
                     textDecorationColor: "var(--text-tertiary)",
                   }}
                 >
-                  Antes: {metric.before}
+                  Na rotina: {metric.before}
                 </p>
               </div>
               <div className="col-span-7 flex items-center justify-end gap-4">
@@ -287,7 +287,7 @@ export function CasesV3() {
                   className="font-mono text-[10px] uppercase tracking-[0.2em]"
                   style={{ color: "var(--cobalt)" }}
                 >
-                  Depois
+                  Com IA
                 </span>
                 <p
                   className="font-mono font-light leading-none"

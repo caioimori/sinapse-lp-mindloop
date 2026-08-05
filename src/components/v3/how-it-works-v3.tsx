@@ -14,25 +14,25 @@ const steps = [
     number: "01",
     title: "Mapeamento",
     description:
-      "Entramos na sua operação e identificamos os gargalos. Você recebe um roadmap com ROI projetado antes de investir um real.",
-    duration: "1 SEMANA",
-    deliverables: ["Auditoria de processos", "Roadmap com ROI", "Pontos de automação"],
+      "Entramos na sua operação e identificamos onde existe repetição, atraso ou informação espalhada.",
+    duration: "ENTENDIMENTO",
+    deliverables: ["Mapa da rotina", "Prioridades da equipe", "Pontos de automação"],
   },
   {
     number: "02",
     title: "Construção",
     description:
-      "Construímos os agentes, conectamos aos seus sistemas e colocamos em operação. Sua equipe continua trabalhando. Nenhum dia parado.",
-    duration: "2–3 SEMANAS",
-    deliverables: ["Agentes treinados", "Integração com sistemas", "Dashboard de operação"],
+      "Desenhamos uma solução conectada aos canais e sistemas que a equipe já utiliza, mantendo as decisões importantes com as pessoas.",
+    duration: "IMPLEMENTAÇÃO",
+    deliverables: ["Agentes configurados", "Integrações definidas", "Critérios de operação"],
   },
   {
     number: "03",
     title: "Otimização",
     description:
-      "Monitoramos cada conversa, cada custo, cada resultado. Todo mês a performance sobe. O custo desce.",
-    duration: "CONTÍNUO",
-    deliverables: ["Monitoramento 24/7", "Relatório mensal", "Call de otimização"],
+      "Acompanhamos o uso, registramos aprendizados e ajustamos a solução conforme a rotina da operação evolui.",
+    duration: "EVOLUÇÃO",
+    deliverables: ["Acompanhamento da operação", "Ajustes contínuos", "Aprendizados registrados"],
   },
 ];
 
@@ -113,13 +113,12 @@ export function HowItWorksV3() {
       >
         <span className="line-wrap block">
           <span data-how-line className="line-inner">
-            Primeira conversa ao
+            Da rotina à solução
           </span>
         </span>
         <span className="line-wrap block">
           <span data-how-line className="line-inner">
-            primeiro agente:{" "}
-            <span style={{ color: "var(--cobalt)" }}>30 dias.</span>
+            conectada à sua operação.
           </span>
         </span>
       </h2>

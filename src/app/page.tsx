@@ -12,31 +12,31 @@ import { FooterV3 } from "@/components/v3/footer-v3";
 import { MarqueeV3 } from "@/components/v3/marquee-v3";
 
 const VERTICAL_ITEMS = [
-  "SAÚDE",
-  "JURÍDICO",
-  "FINANCEIRO",
-  "VAREJO",
-  "AGRONEGÓCIO",
-  "INDÚSTRIA",
-  "EDUCAÇÃO",
-  "SERVIÇOS",
+  "ATENDIMENTO",
+  "SOLICITAÇÕES",
+  "MANUTENÇÕES",
+  "COMUNICADOS",
+  "RESERVAS",
+  "DOCUMENTOS",
+  "ATAS",
+  "SISTEMAS",
 ];
 
 const PROMISE_ITEMS = [
-  "ATENDE",
-  "QUALIFICA",
-  "FECHA",
-  "MONITORA",
-  "APRENDE",
-  "ESCALA",
-  "24/7",
-  "SEM FOLHA",
+  "RESPONDE",
+  "ORGANIZA",
+  "ACOMPANHA",
+  "COMUNICA",
+  "RESERVA",
+  "CONSULTA",
+  "CONECTA",
+  "DECIDE",
 ];
 
 export const metadata: Metadata = {
-  title: "MINDLOOP — Agentes de IA que operam sua empresa",
+  title: "MINDLOOP — Inteligência artificial para a gestão condominial",
   description:
-    "Agentes de IA que atendem, qualificam, fecham e escalam — 24/7, sem folha. Operação autônoma para empresas que querem crescer sem dobrar equipe.",
+    "A Mindloop ajuda síndicos profissionais e administradoras a reduzir tarefas repetitivas e organizar melhor a gestão dos condomínios com inteligência artificial.",
 };
 
 export default function Home() {

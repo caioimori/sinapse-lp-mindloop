@@ -1,6 +1,8 @@
+import { Suspense } from "react";
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import { ChatWidget } from "@/components/chat-widget";
+import { FunnelTracker } from "@/components/funnel-tracker";
 import "./globals.css";
 
 const inter = Inter({
@@ -14,13 +16,14 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "MINDLOOP — AI Agents para empresas brasileiras",
+  metadataBase: new URL("https://www.mindloop.com.br"),
+  title: "MINDLOOP — IA aplicada à gestão condominial",
   description:
-    "Agentes de IA multi-agente produtizados para o mid-market brasileiro. Deploy em semanas, nao meses. R$ 8K-50K.",
+    "Assistentes digitais para síndicos profissionais e administradoras atenderem moradores, organizarem solicitações e encontrarem informações com mais agilidade.",
   openGraph: {
-    title: "MINDLOOP — AI Agents para empresas brasileiras",
+    title: "MINDLOOP — IA aplicada à gestão condominial",
     description:
-      "IA de verdade, sem preco enterprise. Agentes inteligentes que operam por voce.",
+      "Inteligência artificial para reduzir tarefas repetitivas e organizar melhor a gestão dos condomínios.",
     type: "website",
   },
 };
@@ -37,6 +40,9 @@ export default function RootLayout({
     >
       <body suppressHydrationWarning className="min-h-full flex flex-col font-sans">
         {children}
+        <Suspense fallback={null}>
+          <FunnelTracker />
+        </Suspense>
         <ChatWidget />
       </body>
     </html>

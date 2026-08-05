@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import { useRevealOnEnter } from "./use-reveal";
+import { CONTACT_FORM_URL } from "@/lib/contact";
 
 const plans = [
   {
@@ -19,7 +20,7 @@ const plans = [
       "Base de conhecimento (RAG)",
       "Dashboard básico",
       "Suporte por e-mail",
-      "Relatório mensal",
+      "Registro de aprendizados",
     ],
     cta: "Começar com 1 agente",
     highlight: false,
@@ -39,7 +40,7 @@ const plans = [
       "Integração com CRM/ERP",
       "RAG avançado com seus dados",
       "Dashboard completo + alertas",
-      "Calls semanais de otimização",
+      "Acompanhamento da operação",
       "Suporte prioritário",
     ],
     cta: "Escalar operação",
@@ -102,7 +103,7 @@ export function PricingV3() {
       >
         <span className="line-wrap block">
           <span data-pricing-line className="line-inner">
-            Investimento previsível.
+            Um nível de apoio
           </span>
         </span>
         <span className="line-wrap block">
@@ -111,7 +112,7 @@ export function PricingV3() {
             className="line-inner"
             style={{ color: "var(--text-secondary)" }}
           >
-            Retorno mensurável.
+            para cada operação.
           </span>
         </span>
       </h2>
@@ -120,8 +121,8 @@ export function PricingV3() {
         className="mt-10 max-w-2xl text-base leading-relaxed sm:text-lg lg:mt-14 lg:text-xl"
         style={{ color: "var(--text-secondary)" }}
       >
-        Todos os planos incluem dashboard operacional, otimização contínua e relatório
-        mensal de ROI. Setup único. Sem taxas ocultas.
+        Os planos combinam agentes, integrações e acompanhamento conforme o
+        escopo da operação. O diagnóstico define o próximo passo.
       </p>
 
       <div
@@ -231,7 +232,7 @@ export function PricingV3() {
             </ul>
 
             <a
-              href="#contato"
+              href={CONTACT_FORM_URL}
               className="v3-magnet mt-12 flex h-12 items-center justify-center gap-2 rounded-none font-mono text-[11px] uppercase tracking-[0.2em] transition-colors"
               style={
                 plan.highlight
@@ -241,6 +242,8 @@ export function PricingV3() {
                       color: "var(--text-primary)",
                     }
               }
+              data-funnel-event="contact_cta_click"
+              data-funnel-label={plan.cta}
               data-cursor={plan.highlight ? "cobalt" : undefined}
             >
               {plan.cta}

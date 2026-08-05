@@ -3,11 +3,12 @@
 import { useRef } from "react";
 import { useRevealOnEnter } from "./use-reveal";
 import { MindloopSymbol } from "./brand-mark";
+import { CONTACT_FORM_URL } from "@/lib/contact";
 
 const METRICS = [
-  { value: "2–4", unit: "sem", label: "Deploy" },
-  { value: "75", unit: "%", label: "Custo a menos" },
-  { value: "24/7", unit: "", label: "Operação" },
+  { value: "MORADORES", label: "Atendimento" },
+  { value: "SOLICITAÇÕES", label: "Solicitações" },
+  { value: "DOCUMENTOS", label: "Informação" },
 ];
 
 export function HeroV3() {
@@ -52,22 +53,22 @@ export function HeroV3() {
         >
           <span className="line-wrap block" aria-hidden>
             <span data-hero-line className="line-inner">
-              Escale sua operação
+              Menos tarefas
             </span>
           </span>
           <span className="line-wrap block" aria-hidden>
             <span data-hero-line className="line-inner">
-              sem aumentar
+              repetitivas.
             </span>
           </span>
           <span className="line-wrap block" aria-hidden>
             <span data-hero-line className="line-inner inline-block">
-              sua folha
+              Mais gestão
               <span style={{ color: "var(--cobalt)" }}>.</span>
             </span>
           </span>
           <span className="sr-only">
-            Escale sua operação sem aumentar sua folha.
+            Menos tarefas repetitivas. Mais gestão condominial.
           </span>
         </h1>
       </div>
@@ -80,16 +81,17 @@ export function HeroV3() {
             className="max-w-xl text-base leading-relaxed sm:text-lg lg:text-xl"
             style={{ color: "var(--text-secondary)" }}
           >
-            Enquanto você dorme, seus agentes atendem, qualificam e fecham.
-            Treinados com sua base. Prontos em semanas.
+            A Mindloop usa inteligência artificial para reduzir tarefas repetitivas e organizar a gestão condominial, deixando a equipe livre para as decisões importantes.
           </p>
 
           <div data-hero-copy className="mt-10 lg:mt-12">
             <a
-              href="#contato"
+              href={CONTACT_FORM_URL}
               className="v3-magnet group inline-flex h-14 items-center justify-center gap-3 rounded-none px-9 font-mono text-[12px] font-medium uppercase tracking-[0.2em]"
               style={{ background: "var(--cobalt)", color: "#FFFFFF" }}
               data-cursor="cobalt"
+              data-funnel-event="contact_cta_click"
+              data-funnel-label="Quero meu diagnóstico"
             >
               Quero meu diagnóstico
               <span className="v3-magnet__icon">→</span>
@@ -98,7 +100,7 @@ export function HeroV3() {
         </div>
 
         <div
-          className="relative z-10 grid grid-cols-3 gap-6 sm:gap-10 lg:col-span-6 lg:gap-14"
+          className="relative z-10 grid grid-cols-1 gap-6 sm:grid-cols-3 sm:gap-10 lg:col-span-6 lg:gap-14"
         >
           {METRICS.map((m) => (
             <div key={m.label} data-hero-metric className="relative">
@@ -109,21 +111,10 @@ export function HeroV3() {
                 <span
                   className="block"
                   style={{
-                    fontSize: "clamp(2rem, 4.4vw, 3.75rem)",
+                    fontSize: "clamp(1rem, 2.8vw, 2.2rem)",
                   }}
                 >
                   {m.value}
-                  {m.unit && (
-                    <span
-                      className="ml-1"
-                      style={{
-                        color: "var(--cobalt)",
-                        fontSize: "clamp(1rem, 2vw, 1.5rem)",
-                      }}
-                    >
-                      {m.unit}
-                    </span>
-                  )}
                 </span>
               </p>
               <div className="mt-3 flex items-center gap-2">

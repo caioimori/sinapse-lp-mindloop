@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRef } from "react";
 import { useRevealOnEnter } from "./use-reveal";
 import { MindloopSymbol, MindloopWordmark } from "./brand-mark";
+import { CONTACT_FORM_URL } from "@/lib/contact";
 
 export function FooterV3() {
   const rootRef = useRef<HTMLElement>(null);
@@ -63,14 +64,16 @@ export function FooterV3() {
             className="mt-6 max-w-sm text-base leading-relaxed"
             style={{ color: "var(--text-secondary)" }}
           >
-            Agentes de IA que operam sua empresa enquanto você dorme.
+            Inteligência artificial para reduzir tarefas repetitivas e organizar melhor a gestão condominial.
           </p>
 
           <a
-            href="#contato"
+            href={CONTACT_FORM_URL}
             className="v3-magnet mt-8 inline-flex h-12 items-center gap-3 rounded-none px-7 font-mono text-[10px] uppercase tracking-[0.2em]"
             style={{ background: "var(--cobalt)", color: "#FFFFFF" }}
             data-cursor="cobalt"
+            data-funnel-event="contact_cta_click"
+            data-funnel-label="Agendar diagnóstico"
           >
             Agendar diagnóstico
             <span className="v3-magnet__icon">→</span>
@@ -91,9 +94,10 @@ export function FooterV3() {
             <nav className="mt-5 flex flex-col gap-3">
               {[
                 { label: "Serviços", href: "#servicos" },
-                { label: "Cases", href: "#cases" },
+                { label: "Aplicações", href: "#cases" },
                 { label: "Processo", href: "#processo" },
                 { label: "Planos", href: "#planos" },
+                { label: "Mindloop Academy", href: "/academy/trilha-claude" },
                 { label: "Contato", href: "#contato" },
               ].map((l) => (
                 <a
