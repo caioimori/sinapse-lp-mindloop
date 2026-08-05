@@ -3,38 +3,48 @@
 import { useRef, useState } from "react";
 import { useRevealOnEnter } from "./use-reveal";
 
-const services = [
+type Service = {
+  name: string;
+  tag: string;
+  index: string;
+  description: string;
+  features: string[];
+  href?: string;
+};
+
+const services: Service[] = [
   {
     name: "Oráculo",
     tag: "// ORACLE",
     index: "01",
     description:
-      "O segundo cérebro da sua empresa. Cada departamento ganha um especialista que sabe tudo — processos, regras, histórico — e responde na hora. Sem depender daquela pessoa que todo mundo pergunta.",
-    features: ["Knowledge base viva", "RAG por departamento", "Resposta instantânea"],
+      "O segundo cérebro da operação condominial. Organiza regras, histórico, atas e documentos para a equipe encontrar a informação certa quando precisar.",
+    features: ["Base de conhecimento", "Atas e documentos", "Consulta organizada"],
   },
   {
     name: "SmartRanch",
     tag: "// VISION",
     index: "02",
     description:
-      "Visão computacional aplicada ao seu negócio. Câmeras que entendem o que estão vendo — contagem, monitoramento, alertas, análise comportamental — em tempo real.",
-    features: ["Detecção em tempo real", "Análise comportamental", "Alertas inteligentes"],
+      "Visão computacional para apoiar a operação quando imagens, ambientes e ocorrências também fazem parte da rotina do condomínio.",
+    features: ["Leitura de imagens", "Alertas", "Apoio à operação"],
   },
   {
-    name: "OminieMind",
+    name: "OmnieMind",
     tag: "// CRM",
     index: "03",
     description:
-      "Nosso CRM próprio. Nasceu dentro dos nossos agentes, então já vem com IA em cada etapa do funil. Captação, qualificação, follow-up e fechamento — tudo integrado.",
-    features: ["IA nativa", "Pipeline automatizado", "Integração omnichannel"],
+      "Uma camada de organização para contatos, conversas e próximos passos, conectando atendimento, relacionamento e acompanhamento da operação.",
+    features: ["Atendimento organizado", "Acompanhamento", "Integração de canais"],
   },
   {
     name: "MINDLOOP Academy",
     tag: "// ACADEMY",
     index: "04",
     description:
-      "Educação em IA aplicada ao seu negócio. Seu time aprende a operar, treinar e escalar os agentes sozinho — na prática, com dados reais. Autonomia, não dependência.",
-    features: ["Workshops in-company", "Hands-on", "ROI mensurável"],
+      "Workshops e trilhas práticas para colocar a inteligência artificial na rotina da gestão condominial, com exercícios aplicados à operação de síndicos e administradoras.",
+    features: ["Workshops", "Trilha Claude Desktop", "Hands-on"],
+    href: "/academy/trilha-claude",
   },
   {
     name: "CAIOaaS",
@@ -183,6 +193,18 @@ export function ServicesV3() {
                     </span>
                   ))}
                 </div>
+                {service.href && (
+                  <a
+                    href={service.href}
+                    onClick={(event) => event.stopPropagation()}
+                    className="mt-8 inline-flex items-center gap-3 font-mono text-[11px] font-medium uppercase tracking-[0.18em]"
+                    style={{ color: "var(--cobalt)" }}
+                    data-funnel-event="academy_entry_click"
+                    data-funnel-label="Conhecer a trilha"
+                  >
+                    Conhecer a trilha <span aria-hidden>→</span>
+                  </a>
+                )}
               </div>
 
               {/* Cross icon */}

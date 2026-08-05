@@ -53,25 +53,33 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "Email invalido" }, { status: 400 });
     }
 
-    await sendToSheet({
-      name,
-      email,
-      company: sanitize(body.company),
-      employees: sanitize(body.employees),
-      vertical: sanitize(body.vertical),
-      message: sanitize(body.message),
-      urgency: sanitize(body.urgency),
-      budget: sanitize(body.budget),
-      score: sanitize(body.score),
-      score_points: typeof body.score_points === "number" ? body.score_points : 0,
-      source: "Formulario",
-      utm_source: sanitize(body.utm_source),
-      utm_medium: sanitize(body.utm_medium),
-      utm_campaign: sanitize(body.utm_campaign),
-      utm_term: sanitize(body.utm_term),
-      utm_content: sanitize(body.utm_content),
-      page_url: sanitize(body.page_url),
-    });
+    try {
+      await sendToSheet({
+        name,
+        email,
+        company: sanitize(body.company),
+        employees: sanitize(body.employees),
+        vertical: sanitize(body.vertical),
+        message: sanitize(body.message),
+        urgency: sanitize(body.urgency),
+        budget: sanitize(body.budget),
+        score: sanitize(body.score),
+        score_points: typeof body.score_points === "number" ? body.score_points : 0,
+        source: "Formulario",
+        utm_source: sanitize(body.utm_source),
+        utm_medium: sanitize(body.utm_medium),
+        utm_campaign: sanitize(body.utm_campaign),
+        utm_term: sanitize(body.utm_term),
+        utm_content: sanitize(body.utm_content),
+        page_url: sanitize(body.page_url),
+      });
+    } catch (error) {
+      console.error("Lead delivery error:", error);
+      return NextResponse.json(
+        { error: "Não foi possível registrar seu contato. Tente novamente." },
+        { status: 503 }
+      );
+    }
 
     return NextResponse.json({ success: true });
   } catch {

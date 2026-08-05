@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect, useCallback } from "react";
+import { usePathname } from "next/navigation";
 
 interface Message {
   role: "user" | "assistant";
@@ -33,6 +34,7 @@ function renderMarkdown(text: string) {
 }
 
 export function ChatWidget() {
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [visible, setVisible] = useState(false);
   const [closing, setClosing] = useState(false);
@@ -104,6 +106,10 @@ export function ChatWidget() {
     } finally {
       setLoading(false);
     }
+  }
+
+  if (pathname.startsWith("/proposta/") || pathname === "/academy/trilha-claude") {
+    return null;
   }
 
   return (

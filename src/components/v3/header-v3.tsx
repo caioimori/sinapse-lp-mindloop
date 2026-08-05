@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { MindloopWordmark } from "./brand-mark";
+import { CONTACT_FORM_URL } from "@/lib/contact";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -11,10 +12,11 @@ if (typeof window !== "undefined") {
 
 const NAV_ITEMS: { label: string; href: string; index: string }[] = [
   { label: "Serviços", href: "#servicos", index: "01" },
-  { label: "Cases", href: "#cases", index: "02" },
+  { label: "Aplicações", href: "#cases", index: "02" },
   { label: "Processo", href: "#processo", index: "03" },
   { label: "Planos", href: "#planos", index: "04" },
-  { label: "Contato", href: "#contato", index: "05" },
+  { label: "Academy", href: "/academy/trilha-claude", index: "05" },
+  { label: "Contato", href: "#contato", index: "06" },
 ];
 
 export function HeaderV3() {
@@ -91,15 +93,17 @@ export function HeaderV3() {
           </nav>
 
           <a
-            href="#contato"
+            href={CONTACT_FORM_URL}
             className="v3-magnet hidden items-center gap-2.5 rounded-none px-6 py-3 font-mono text-[11px] font-medium uppercase tracking-[0.18em] md:inline-flex"
             style={{
               background: "var(--cobalt)",
               color: "#FFFFFF",
             }}
             data-cursor="cobalt"
+            data-funnel-event="contact_cta_click"
+            data-funnel-label="Agendar diagnóstico"
           >
-            Diagnóstico gratuito
+            Agendar diagnóstico
             <span className="v3-magnet__icon">→</span>
           </a>
 
@@ -224,10 +228,12 @@ export function HeaderV3() {
             }}
           >
             <a
-              href="#contato"
+              href={CONTACT_FORM_URL}
               onClick={() => setOpen(false)}
               className="flex h-12 w-full items-center justify-center rounded-none font-mono text-[11px] uppercase tracking-[0.2em]"
               style={{ background: "var(--cobalt)", color: "#FFFFFF" }}
+              data-funnel-event="contact_cta_click"
+              data-funnel-label="Agendar diagnóstico"
             >
               Agendar diagnóstico →
             </a>

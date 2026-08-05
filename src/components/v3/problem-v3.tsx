@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRevealOnEnter } from "./use-reveal";
@@ -12,27 +12,27 @@ if (typeof window !== "undefined") {
 const tiers = [
   {
     index: "01",
-    price: "R$ 700 – 1.200",
-    tag: "BARATO DEMAIS",
-    name: "Micro-agências",
-    desc: "Respostas robóticas. Seu cliente percebe em 5 segundos que não é humano. Zero integração. Dano à marca.",
+    price: "MORADORES",
+    tag: "ATENDIMENTO REPETITIVO",
+    name: "Perguntas em loop",
+    desc: "Dúvidas frequentes ocupam o grupo e interrompem a equipe. A Mindloop organiza respostas para que as pessoas cuidem do que exige contexto.",
     level: "low",
   },
   {
     index: "02",
-    price: "R$ 8K – 50K",
-    tag: "MINDLOOP",
-    name: "O ponto certo",
-    desc: "Agentes com seus dados. Monitoramento 24/7. Resultado em semanas. Sem orçamento imprevisível.",
+    price: "SOLICITAÇÕES",
+    tag: "SOLICITAÇÕES ORGANIZADAS",
+    name: "Solicitações espalhadas",
+    desc: "Solicitações, manutenções e avisos podem seguir um fluxo mais claro, conectado aos canais e sistemas que a operação já utiliza.",
     level: "hi",
     highlight: true,
   },
   {
     index: "03",
-    price: "R$ 500K+",
-    tag: "CARO DEMAIS",
-    name: "Consultorias enterprise",
-    desc: "Dezenas de reuniões. Slides bonitos. 12 meses até o primeiro agente funcionar. Se funcionar.",
+    price: "DOCUMENTOS",
+    tag: "INFORMAÇÃO ACESSÍVEL",
+    name: "Atas difíceis de consultar",
+    desc: "Atas, contratos e regras do condomínio guardam informações importantes. A IA ajuda a localizar, resumir e organizar esse conhecimento.",
     level: "low",
   },
 ];
@@ -71,13 +71,13 @@ export function ProblemV3() {
       >
         <span className="line-wrap block">
           <span data-problem-line className="line-inner">
-            IA barata não funciona.
+            O operacional se repete.
           </span>
         </span>
         <span className="line-wrap block">
           <span data-problem-line className="line-inner">
-            IA cara{" "}
-            <span style={{ color: "var(--cobalt)" }}>demora.</span>
+            A decisão continua{" "}
+            <span style={{ color: "var(--cobalt)" }}>humana.</span>
           </span>
         </span>
       </h2>
@@ -87,8 +87,9 @@ export function ProblemV3() {
         className="mt-10 max-w-2xl text-base leading-relaxed sm:text-lg lg:mt-14 lg:text-xl"
         style={{ color: "var(--text-secondary)" }}
       >
-        Chatbots de R$&nbsp;700 envergonham sua marca. Consultorias de R$&nbsp;500K
-        levam 18&nbsp;meses. Enquanto isso, seu concorrente já automatizou.
+        A inteligência artificial assume tarefas repetitivas, enquanto o síndico
+        e a administradora ficam livres para resolver o que exige atenção e
+        decisão humana.
       </p>
 
       <div
@@ -163,7 +164,7 @@ export function ProblemV3() {
                 className="font-mono text-[9px] uppercase tracking-[0.22em]"
                 style={{ color: "var(--text-tertiary)" }}
               >
-                Viável
+                Aplicação
               </span>
               <div
                 className="h-px flex-1"
